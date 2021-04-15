@@ -196,9 +196,11 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm">
-                                <img class="img-pub" src="http://placehold.it/500x200" height="100%" width="100%"/>
-                            </div>
+                                <div class="col-sm">
+                                    <img class="img-pub" src="images/img2.jpg" width="100%" height="auto"  alt=""/>
+                                </div>
+                            
+                            
                         </div>
                         
                     </div>

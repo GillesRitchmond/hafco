@@ -882,6 +882,12 @@ hr{
 .form-contact .row .col-sm h1{
     font-size: xx-large;
 }
+.img-pub{
+    /* margin-top: 15px; */
+    width: 350px;
+    height: 200px;
+    object-fit: cover;
+}
 @media screen and (max-width: 767px){
     .services .help-services p{
         width: 350px;
