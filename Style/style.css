@@ -698,7 +698,13 @@ hr{
     object-fit: cover;
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 300px){
+    text-width{
+        width: 100px;
+    }
+}
+
+@media (min-width: 301px) and (max-width: 767px){
     /* .banner{
         text-align: center;
         height: 350px;

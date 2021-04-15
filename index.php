@@ -69,28 +69,23 @@
 
                         
                                         
+                                        <form action="index.php" method="POST">
+                                            <input type="text" class="form-control" id="search" name="search"  placeholder="Exemple : Fournitures de bureau" /> 
+<!-- 
+                                                <div class="col col-md-10 form-row search-field mx-auto">
+                                                    
+                                                </div>
 
-                                       <input type="text" class="form-control" placeholder="Exemple : Fournitures de bureau" /> 
+                                                <div class="col-9 col-md-9 form-row search-field">
+                                                    
+                                                </div>  -->
+                                                
+                                
+                                            <div class="col-md">
+                                                <button type="submit" class="btn btn-secondary mt-4 mx-auto"> Rechercher </button>
+                                            </div>
 
-                                        <div class="col col-md-10 form-row search-field mx-auto">
-                                            
-                                        </div>
-
-                                        <div class="col-9 col-md-9 form-row search-field">
-                                            
-                                        </div> 
-                                        
-                        
-                                        <div class="col-md">
-                                            <button class="btn btn-secondary mt-4 mx-auto"> Rechercher
-                                                 <!-- <span class="glyphicon glyphicon-search" aria-hidden="true" >
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0
-                                                        0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                                    </svg>
-                                                </span>  -->
-                                            </button>
-                                        </div>
+                                        </form>
                                     </div>
                                     
                                 </div>
@@ -166,6 +161,7 @@
 
                                 <?php
 
+                                    
                                 // Pagination --------->
 
                                     if (isset($_GET['pageno'])) {
@@ -173,43 +169,61 @@
                                     } else {
                                         $pageno = 1;
                                     }
+                                    
                                     $no_of_records_per_page = 12;
                                     $offset = ($pageno-1) * $no_of_records_per_page;
-                            
-                                    // $conn=mysqli_connect("localhost","my_user","my_password","my_db");
-                                    // Check connection
-                                    // if (mysqli_connect_errno()){
-                                    //     echo "Failed to connect to MySQL: " . mysqli_connect_error();
-                                    //     die();
-                                    // }
 
                                     $total_pages_sql = "SELECT COUNT(*) FROM product ";
                                     $result = mysqli_query($conn,$total_pages_sql);
                                     $total_rows = mysqli_fetch_array($result)[0];
                                     $total_pages = ceil($total_rows / $no_of_records_per_page);
-
+                                    
+                                    
                                 // Fetch Product
-
-                                    $query = "SELECT * FROM  product WHERE categories_id <> 0 ORDER BY product_name LIMIT $offset, $no_of_records_per_page";
-                                    $result = $conn->query($query);
-
-                                    if (mysqli_num_rows($result) > 0) {
-                                        while($row = mysqli_fetch_assoc($result)) {
-                                            echo '<div class="col-md-4"> <div class="card mx-auto my-auto h-100">';
-                                            echo '<img src="upload/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
-                                                    // {% if product.image %}
                                     
-                                                    //     <img src="{{ vich_uploader_asset(product, 'imageFile')}}" class="card-img-top">
+                                if(isset($_POST["search"])){
+                                        
+
+                                    $input = filter_input_array(INPUT_POST);
+                                    $search = mysqli_real_escape_string($conn, $input["search"]);
+                                    // $id = mysqli_real_escape_string($conn, $input["id"]);
+
+                                        $query = 'SELECT * FROM  product WHERE product_name LIKE "%'.$search.'%"';
+                                        $result = $conn->query($query);
+
+                                        if (mysqli_num_rows($result) > 0) {
+                                            while($row = mysqli_fetch_assoc($result)) {
+                                                echo '<div class="col-md-4"> <div class="card mx-auto my-auto h-100">';
+                                                echo '<img src="upload/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
+                                                echo '<div class="card-body"> <h3 class="card-title">'. $row['product_name'] .'</h3> <hr>';
+                                                echo '<p class="card-text">'. $row['product_description'] ;
+                                                echo '</p> </div> <a href="show_product.php?product_id=<?='.$row['id'].'?>" >';
+                                                echo '<div class="card-footer"> <small class="text"> Plus de détails </small> </div> </a> </div> </div>';
+                                            }
+                                        } 
+                                    }
                                     
-                                                    // {% endif %}
-                                                    
-                                            echo '<div class="card-body"> <h3 class="card-title">'. $row['product_name'] .'</h3> <hr>';
-                                            echo '<p class="card-text">'. $row['product_description'] ;
-                                            echo '</p> </div> <a href="{{ path(, {id: product.id, slug: product.slug}) }}" >';
-                                            echo '<div class="card-footer"> <small class="text"> Plus de détails </small> </div> </a> </div> </div>';
+                                    else{
+
+                                        $query = "SELECT * FROM  product WHERE categories_id <> 0 ORDER BY product_name LIMIT $offset, $no_of_records_per_page";
+                                        $result = $conn->query($query);
+
+                                        if (mysqli_num_rows($result) > 0) {
+                                            while($row = mysqli_fetch_assoc($result)) {
+                                                echo '<div class="col-md-4"> <div class="card mx-auto my-auto h-100">';
+                                                echo '<img src="upload/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
+                                                        // {% if product.image %}
+                                        
+                                                        //     <img src="{{ vich_uploader_asset(product, 'imageFile')}}" class="card-img-top">
+                                        
+                                                        // {% endif %}
+                                                
+                                                echo '<div class="card-body"> <h3 class="card-title">'. $row['product_name'] .'</h3> <hr>';
+                                                echo '<p class="card-text">'. $row['product_description'] ;
+                                                echo '</p> </div> <a href="show_product.php?product_id='.$row['id'].'-'.$row['product_name'].'" >';
+                                                echo '<div class="card-footer"> <small class="text"> Plus de détails </small> </div> </a> </div> </div>';
+                                            }
                                         }
-                                    } else {
-                                      echo "0 results";
                                     }
                                 ?>
 
@@ -227,9 +241,6 @@
                                 <li><a href="?pageno=<?php echo $total_pages; ?>"  class="page-link">Last</a></li>
                             </ul>
 
-                                <!-- <div aria-label="navigation" class="bg-light row pagination pagination-sm justify-content-center flex-wrap js-filter-pagination">
-                                        <div class="pagination-sm"></div>
-                                </div> -->
                             </div>
                         </div>
 

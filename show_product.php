@@ -1,5 +1,6 @@
 <?php
     include('base_header.php');
+    include('Model/Connection.php');
 ?>
 
 <html>
@@ -45,29 +46,38 @@
     <div class="container product">
         <div class="row g-0 bg-light position-relative">
 
-            <div class="col-md-6 mb-md-0 p-md-4">
-                <!-- {% if product.image %}
+                    <?php
+                            $id = $_GET['product_id'];
+                            $query = "SELECT * FROM  product WHERE id = '$id'";
+                            $result = $conn->query($query);
 
-                    <img src="{{ vich_uploader_asset(product, 'imageFile')}}" class="w-100" style="width:100%; height:auto;" >
+                            if (mysqli_num_rows($result) > 0) {
+                                while($row = mysqli_fetch_assoc($result)) {
 
-                {% endif %}
-                {# <img src="{{product.image}}" class="img-prod-show"/> #} -->
-            </div>
-            <div class="col-md-6 p-4 ps-md-0">
-            
-                <div class="product-details">
-                    <h1>{{product.productName}}</h1>
-                    <hr>
-                    <p> {{product.productDescription}}</p>
-                    <span class="price"> Prix : {{product.productPrice}} HTG</span>
-                    {% if product.productPrice == 0 %}
-                        <p class="text-muted mt-2">
-                                <i class="fas fa-exclamation-circle"></i>
-                                Il n'y a pas de prix précis pour ce genre de produits. 
-                            <br/> Veuillez nous contacter pour un devis
-                        </p>
-                    {% endif %}
-                </div>
+                                    echo '<div class="col-md-6 mb-md-0 p-md-4">
+                                        <img src="upload/images/products/'.$row['image'].'" class="w-100"/> </div>
+                                        <div class="col-md-6 p-4 ps-md-0"> 
+                                        <div class="product-details">
+                                    ';
+
+                                    echo '<h1>'. $row['product_name'] .'</h1> <hr>
+                                    <p>'. $row['product_description'].'</p>
+                                    <span class="price"> Prix : '. $row['product_price'] .' HTG</span>';
+                                    
+                                    if ($row['product_price'] == 0)
+                                    {
+                                        echo '<p class="text-muted mt-2">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                            Il n\'y a pas de prix précis pour ce genre de produits. 
+                                        <br/> Veuillez nous contacter pour un devis
+                                        </p>';
+                                    }
+                                }
+                            }
+                            
+                            
+                    echo '</div>';
+                ?>
 
                 <div class="product-details">
                    
@@ -77,40 +87,59 @@
                     </div>
 
                     <div class="message-btn btn">
-                        <a class="btn form-btn" href="#">Formulaire d'informations</a>
+                        <a class="btn form-btn" href="#contactForm">Formulaire d'informations</a>
                         <br/><br/>
                     </div>
                     <a class="link ms-1" href="{{path ('catalog')}}">Retournez à la liste des produits</a>
                 </div>
-
+            
             </div>
         </div>
 
          <div class="bg-light mt-4" id="contactForm">
             <h3>Ecrivez-nous par email</h3>
             <hr>
-            {{ form_start(form) }}
+            
                 <div class="row mt-4">
-                    <div class="col">{{form_row(form.firstname)}}</div>
-                    <div class="col">{{form_row(form.lastname)}}</div>
+                    <div class="col">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInput">
+                            <label for="floatingInput">Nom</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInput">
+                            <label for="floatingInput">Prénom</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="row mt-4">
-                    <div class="col">{{form_row(form.phone)}}</div>
-                    <div class="col">{{form_row(form.email)}}</div>
+                    <div class="col">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="floatingInput">
+                            <label for="floatingInput">Email</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="floatingInput">
+                            <label for="floatingInput">Numéro de téléphone</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="row mt-4">
-                    {{ form_rest(form) }}
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingInput" style="height: 100px"></textarea>
+                        <label for="floatingInput" style="margin-left: 10px;">Commentaire</label>
+                    </div>
                 </div>
                 <div class="form-group mt-4">
                     <button class="btn btn-primary form_btn"> Envoyer </button> 
                 </div>
-            {{ form_end(form) }}
         </div>
 
     </div>
-
-
-
 
         <?php
             include('base_footer.php');
