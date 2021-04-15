@@ -218,13 +218,13 @@
                     
                         <div class="more-link"><a href="index.php">Voir plus</a></div>
 
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
-
+                                
 
         <?php
             include('base_footer.php');
