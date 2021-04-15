@@ -1,0 +1,155 @@
+body{
+    font-size:16px;
+    font-family: 'Roboto', sans-serif;
+}
+/**************** BASIC COLOR ***********************/
+.primary{
+    color:#FFBC00
+}
+.secondary{
+    color:#345282
+}
+.third-color{
+    color: #BBBBBB;
+}
+.btn-primary{
+    background-color: #345282;
+    color: #FFF;
+}
+.btn-primary:hover{
+    background-color: #FFBC00;
+    color: #345282;
+}
+.btn-primary .active{
+    background-color: #FFBC00;
+}
+
+/**************** BASE ADMIN ****************/
+.section-management h1{
+    text-align: center;
+    margin: 30px;
+    color:#345282;
+    font-weight: bold;
+}
+.admin-link{
+    background-color: #f8f9fa;
+    margin: 0 auto;
+}
+.admin-link .nav{
+    text-align: center;
+}
+.nav .nav-link{
+    text-align: center;
+    margin: 5px;
+    color: #FFF;
+    background-color: #345282;
+    padding: 10px;
+    width: max-content;
+}
+.nav .nav-link:hover{
+    background-color: #FFBC00;
+    color: #345282;
+}
+.nav .activate{
+    background-color: #FFBC00;
+    color: #345282;
+}
+
+/**************** FOOTER ***********************/
+
+.footer{
+    height: max-content;
+    margin-top: 10px;
+    padding: 20px;
+}
+.footer-content{
+    text-align: left;
+    font-size: medium;
+    /* margin: 0 auto; */
+}
+.copywrite{
+    background-color: #FFF;
+    font-size:medium;
+    color: #707070;
+    text-align: center;
+    padding: 10px;
+}
+.copywrite a{
+    text-decoration: none;
+}
+.copywrite a:hover{
+    color:#FFBC00;
+    text-decoration: underline;
+}
+
+/**************** PRODUCT MANAGE ***********************/
+
+.section{
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.section h2{
+    color:grey;
+    /* margin-left: -30px; */
+}
+.section a{
+    background-color: #345282;
+    color: #FFF;
+    border: none;
+}
+.section a:hover{
+    background-color:#FFBC00;
+    color:#345282;
+}
+.section ul{
+    display: flex;
+    justify-content: space-between;
+}
+.section ul li{
+    list-style: none;
+}
+.table-color-brand{
+    background-color:#BBBBBB;
+    color:#000;
+}
+table tr{
+    text-align: left;
+    height: max-content;
+    width: max-content;
+}
+.table tr td{
+    height: max-content;
+}
+.action-group{
+    display: flex;
+    margin-left: -30px;
+}
+.action-group li{
+    list-style: none;
+}
+.action{
+    margin: 4px;
+    width: max-content;
+}
+
+
+/**************** NEW PRODUCT ***********************/
+
+.form_product{
+    margin: 0 auto;
+}
+.form_product .form_field{
+    padding: 6px;
+}
+.form_product .form_btn{
+    margin: 15px 0px;
+    width: max-content;
+    border:none;
+}
+.form_btn{
+    margin: 0 auto;
+}
+
+/**************** EDIT PRODUCT ***********************/
+
+
