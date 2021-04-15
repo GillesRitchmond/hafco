@@ -208,10 +208,8 @@
 
         </div>
    
+        <?php
+         include('base_footer.php');
+        ?>
     </body>
-
 </html>
-
-<?php
-    include('base_footer.php');
-?>

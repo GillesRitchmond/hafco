@@ -46,12 +46,12 @@
         <div class="row g-0 bg-light position-relative">
 
             <div class="col-md-6 mb-md-0 p-md-4">
-                {% if product.image %}
+                <!-- {% if product.image %}
 
                     <img src="{{ vich_uploader_asset(product, 'imageFile')}}" class="w-100" style="width:100%; height:auto;" >
 
                 {% endif %}
-                {# <img src="{{product.image}}" class="img-prod-show"/> #}
+                {# <img src="{{product.image}}" class="img-prod-show"/> #} -->
             </div>
             <div class="col-md-6 p-4 ps-md-0">
             
@@ -112,10 +112,8 @@
 
 
 
+        <?php
+            include('base_footer.php');
+        ?>
     </body>
-
 </html>
-
-<?php
-    include('base_footer.php');
-?>

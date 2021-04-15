@@ -226,10 +226,8 @@
     </div>
 
 
+        <?php
+            include('base_footer.php');
+        ?>
     </body>
-
 </html>
-
-<?php
-    include_once('base_footer.php');
-?>
