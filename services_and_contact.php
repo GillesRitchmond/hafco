@@ -197,7 +197,7 @@
                             </div>
 
                                 <div class="col-sm">
-                                    <img class="img-pub" src="images/img2.jpg" width="100%" height="auto"  alt=""/>
+                                    <img class="img-pub" src="images/img2.jpg" width="100%" height="100%"  alt=""/>
                                 </div>
                             
                             
