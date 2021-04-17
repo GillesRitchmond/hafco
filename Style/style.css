@@ -673,7 +673,7 @@ hr{
     border-color: #d6d6d6;
     object-fit: cover;
 }
-/* .img-hover{
+.img-hover{
     background-color:rgba(255, 255, 255, 0);
     width: 250px;
     height: 250px;
@@ -681,8 +681,8 @@ hr{
     text-align:center;
     margin-top: 8px;
     padding-top: 110px;
-} */
-/* .details-btn{
+}
+.details-btn{
     text-align: center;
     margin-top: 30px;
     border-style: solid;
@@ -693,7 +693,7 @@ hr{
     padding: 5px 10px;
     border-width: 2px;
     color:rgba(255, 255, 255, 0);
-} */
+}
 /* .details-btn:hover{
     color: rgba(255, 255, 255);
     border-color: rgba(255, 255, 255);

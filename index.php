@@ -112,7 +112,7 @@
                                 if (mysqli_num_rows($result) > 0) {
                                     while($row = mysqli_fetch_assoc($result)) {
                                         echo '<div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="'.$row['id'].'" data-id="'.$row["id"].'" name="category[]" ></input
+                                                <input class="form-check-input" type="checkbox" value="'.$row['id'].'" id="'.$row['id'].'" name="category" ></input>
                                                 <label class="form-check-label" for="flexCheckDefault">'.$row['category_name'].'</label>
                                             </div>';
                                     }
@@ -167,13 +167,8 @@
                                 // Fetch Product
                                 
                                     if(isset($_POST["category"])){
-                                        
 
-                                        // $input = filter_input_array(INPUT_POST);
-                                        // $search = mysqli_real_escape_string($conn, $input["search"]);
-                                        // $id = mysqli_real_escape_string($conn, $input["id"]);
-
-                                        $query = 'SELECT * FROM  product WHERE categories_id = '.$_POST["category"].'%"' ;
+                                        $query = 'SELECT * FROM  product WHERE categories_id LIKE "'.$_POST["category"].'"';
                                         $result = $conn->query($query);
 
                                         if (mysqli_num_rows($result) > 0) {
