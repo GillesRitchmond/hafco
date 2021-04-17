@@ -96,7 +96,7 @@
                             </div>
 
                             <div class="carousel-item" data-bs-interval="5000">
-                                {# <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> #}
+                                 <!-- <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> -->
                                 <div class="carousel-caption d-none d-md-block">
                                     <div class="content container">
                                         <div class="text-width">
@@ -110,16 +110,16 @@
                             </div>
                         </div>
                         
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="prev">
+                        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="prev"> -->
                             <!-- {# <span class="carousel-control-prev-icon" aria-hidden="true"></span> #} -->
-                            <span class="iconify iconify-left" data-icon="fa-angle-left" data-inline="false" style="color: white;"></span>
+                            <!-- <span class="iconify iconify-left" data-icon="fa-angle-left" data-inline="false" style="color: white;"></span> -->
                             <!-- {# <span class="visually-hidden">Previous</span> #} -->
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="next">
+                        <!-- </button> -->
+                        <!-- <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="next"> -->
                             <!-- {# <span class="carousel-control-next-icon" aria-hidden="true"></span> #} -->
-                            <span class="iconify" data-icon="fa-angle-right" data-inline="false" style="color: white;"></span>
+                            <!-- <span class="iconify" data-icon="fa-angle-right" data-inline="false" style="color: white;"></span> -->
                             <!-- {# <span class="visually-hidden">Next</span> #} -->
-                        </button>
+                        <!-- </button> -->
                     </div>
                 </div>
 

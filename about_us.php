@@ -45,7 +45,7 @@
             <div class="banner">
                 <div class="content container">
                     <div class="text-width meubles mt-4">
-                        <h1> Haitian American <br/> fiberglass <br/> company s.a. <br/><br/><span id="ctlg"> HAFCO </span> </h1>
+                        <h1> Haitian American <br/> fiberglass <br/> company s.a. <br/><span id="ctlg"></span> </h1>
                         <li class="meubles-btn"> 
                             <a href="#">Voir nos meubles</a>
                         </li>

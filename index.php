@@ -104,38 +104,23 @@
     
                         <div class="category"><h5>Catégories de produits</h5></div>
                         <hr>
-
-                        <?php
-                            $query = "SELECT * FROM  category ORDER BY category_name ASC";
-                            $result = $conn->query($query);
-
-                            if (mysqli_num_rows($result) > 0) {
-                                while($row = mysqli_fetch_assoc($result)) {
-                                    echo '<div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">'.$row['category_name'].'</label>
-                                        </div>';
+                        <form action="index.php" method="POST">
+                            <?php
+                                $query = "SELECT * FROM  category ORDER BY category_name ASC";
+                                $result = $conn->query($query);
+                            
+                                if (mysqli_num_rows($result) > 0) {
+                                    while($row = mysqli_fetch_assoc($result)) {
+                                        echo '<div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="'.$row['id'].'" data-id="'.$row["id"].'" name="category[]" ></input
+                                                <label class="form-check-label" for="flexCheckDefault">'.$row['category_name'].'</label>
+                                            </div>';
+                                    }
                                 }
-                            }
-                        ?>
-                        
-                        
-                        <button type="submit" id="searchByCategory" class="btn btn-primary mt-3">Rechercher</button>
-                       
-                        <hr class="mt-3">
-                        <div class="category"><h5>Sous-catégories de produits</h5></div>
-                        <hr> 
-                        
-                        <ul class="list-group list-group-flush">
-
-
+                            ?>
                             
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a class="categ-name secondary" href="{{ path('catalog', {id: category.id, slug: category.slug}) }}"></a>
-                                    
-                                </li>
-                            
-                             </ul> 
+                            <button type="submit" id="searchByCategory" class="btn btn-primary mt-3">Rechercher</button>
+                        </form>
                     </div>
                 </div>
 
@@ -180,15 +165,39 @@
                                     
                                     
                                 // Fetch Product
-                                    
-                                if(isset($_POST["search"])){
+                                
+                                    if(isset($_POST["category"])){
                                         
 
-                                    $input = filter_input_array(INPUT_POST);
-                                    $search = mysqli_real_escape_string($conn, $input["search"]);
-                                    // $id = mysqli_real_escape_string($conn, $input["id"]);
+                                        // $input = filter_input_array(INPUT_POST);
+                                        // $search = mysqli_real_escape_string($conn, $input["search"]);
+                                        // $id = mysqli_real_escape_string($conn, $input["id"]);
 
-                                        $query = 'SELECT * FROM  product WHERE product_name LIKE "%'.$search.'%"';
+                                        $query = 'SELECT * FROM  product WHERE categories_id = '.$_POST["category"].'%"' ;
+                                        $result = $conn->query($query);
+
+                                        if (mysqli_num_rows($result) > 0) {
+                                            while($row = mysqli_fetch_assoc($result)) {
+                                                echo '<div class="col-md-4"> <div class="card mx-auto my-auto h-100">';
+                                                echo '<img src="upload/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
+                                                echo '<div class="card-body"> <h3 class="card-title">'. $row['product_name'] .'</h3> <hr>';
+                                                echo '<p class="card-text">'. $row['product_description'] ;
+                                                echo '</p> </div> <a href="show_product.php?product_id=<?='.$row['id'].'?>" >';
+                                                echo '<div class="card-footer"> <small class="text"> Plus de détails </small> </div> </a> </div> </div>';
+                                            }
+                                        } 
+                                    }
+
+
+
+                                    if(isset($_POST["search"])){
+                                        
+
+                                        // $input = filter_input_array(INPUT_POST);
+                                        // $search = mysqli_real_escape_string($conn, $input["search"]);
+                                        // $id = mysqli_real_escape_string($conn, $input["id"]);
+
+                                        $query = 'SELECT * FROM  product WHERE product_name LIKE "%'.$_POST["search"].'%"' ;
                                         $result = $conn->query($query);
 
                                         if (mysqli_num_rows($result) > 0) {

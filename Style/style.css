@@ -326,17 +326,28 @@ nav ul li a .active{
     }
     .text-width{
         margin-top: -15px;
+        margin-left: 0px;
     }
     .search{
         margin-left: -60px;
     }
     .text-width h1{
-        width: 300px;
+        width: 325px;
         /* margin-left: -50px; */
     }
+    .meubles{
+        /* margin-left: -5px; */
+        width: 40px;
+    }
+
     
     .pagination{
         width: 20px;
+    }
+
+    .carousel-item{
+        visibility: visible;
+        display: contents;
     }
 }
 
@@ -662,7 +673,7 @@ hr{
     border-color: #d6d6d6;
     object-fit: cover;
 }
-.img-hover{
+/* .img-hover{
     background-color:rgba(255, 255, 255, 0);
     width: 250px;
     height: 250px;
@@ -670,8 +681,8 @@ hr{
     text-align:center;
     margin-top: 8px;
     padding-top: 110px;
-}
-.details-btn{
+} */
+/* .details-btn{
     text-align: center;
     margin-top: 30px;
     border-style: solid;
@@ -682,16 +693,17 @@ hr{
     padding: 5px 10px;
     border-width: 2px;
     color:rgba(255, 255, 255, 0);
-}
-.details-btn:hover{
+} */
+/* .details-btn:hover{
     color: rgba(255, 255, 255);
     border-color: rgba(255, 255, 255);
-}
-.img-hover:hover{
+} */
+/* .img-hover:hover{
     background-color:rgba(0, 0, 0, 0.479);
     width: 250px;
     height: 250px;
-}
+    padding-top: -50px;
+} */
 .about-img{
     width: 350px;
     height: 320px;
@@ -815,17 +827,17 @@ hr{
     text-align: justify;
     text-justify: auto;
 }
-@media screen and (max-width: 425px){
+@media screen and (max-width: 767px){
     .content{
         margin-top: 50px;
     }
     .meubles{
-        margin-left: -10px;
+        /* margin-left: -5px; */
         width: 40px;
     }
     .meubles-btn{
         width:300px;
-        margin: 40px 0px;
+        margin: 45px 0px;
     }
 }
 
@@ -884,8 +896,8 @@ hr{
 }
 .img-pub{
     /* margin-top: 15px; */
-    width: 350px;
-    height: 200px;
+    width: 600px;
+    height: 600px;
     object-fit: cover;
 }
 @media screen and (max-width: 767px){
