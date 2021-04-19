@@ -5,7 +5,7 @@
 
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Accueil</title>
          
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -46,81 +46,14 @@
     <div class="body-hafco">
 
         <div class="banner">
-             <div class="content container">
+            <div class="content container">
                 <div class="text-width">
                     <h1> 50 ans d'expérience dans la fabrication de <span id="ctlg"> mobilier scolaire <span> </h1>
                     <li class="meubles-btn"> 
-                        <a href="#">Voir nos meubles</a>
+                        <a href="index.php">Voir nos meubles</a>
                     </li>
                 </div>
             </div>
-
-            <!-- <div id="carouselExampleDark" class="carousel carousel-light slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item first active" data-bs-interval="5000">
-                        {# <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> #}
-                        <div class="carousel-caption d-none d-md-block">
-                            <div class="content">
-                                <div class="text-width">
-                                    <h1> <span id="ctlg"> HAFCO <br/> </span> Haitian American Fiberglass Company S.A. </h1>
-                                    <li class="meubles-btn"> 
-                                        <a href="{{ path('about_us')}}#aboutUs">Qui sommes-nous ?</a>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item second" data-bs-interval="5000">
-                    {# <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> #}
-                        <div class="carousel-caption d-none d-md-block">
-                            <div class="content ">
-                                <div class="text-width">
-                                    <h1> Des services de <span id="ctlg"> réparations et de restauration de meubles </span> </h1>
-                                    <li class="meubles-btn"> 
-                                        <a href="{{path('contact_and_services')}}">Nos services</a>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item third" data-bs-interval="5000">
-                    {# <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> #}
-                    <div class="carousel-caption d-none d-md-block">
-                        <div class="content ">
-                            <div class="text-width">
-                                <h1> 50 ans d'expérience <br/> dans la fabrication de <span id="ctlg"> mobilier scolaire </span> </h1>
-                                <li class="meubles-btn"> 
-                                    <a href="{{path('catalog')}}">Voir nos meubles</a>
-                                </li>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                
-                {# <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="iconify iconify-left" data-icon="fa-angle-left" data-inline="false" style="color: white;"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="iconify" data-icon="fa-angle-right" data-inline="false" style="color: white;"></span>
-                    <span class="visually-hidden">Next</span>
-                </button> #}
-            </div>
-            {# <div class="bg-home-video">
-                <video autoplay muted loop id="myVideo">
-                    <source src="{{asset('videos/meubles.mp4')}}" type="video/mp4">
-                </video>
-            </div> #} -->
         </div>
 
         <div class="section-content">
@@ -132,10 +65,10 @@
                     <div class="links row">
                         <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{path('catalog')}}">Découvrir notre catalogue</a></li>
-                                <li class="breadcrumb-item"><a href="{{path('catalog')}}">Acheter nos produits</a></li>
-                                <li class="breadcrumb-item"><a href="{{path('about_us')}}">Pourquoi choisir la HAFCO ?</a></li>
-                                <li class="breadcrumb-item"><a href="{{path('contact_and_services')}}">Nos services</a></li>
+                                <li class="breadcrumb-item"><a href="index.php">Découvrir notre catalogue</a></li>
+                                <li class="breadcrumb-item"><a href="index.php">Acheter nos produits</a></li>
+                                <li class="breadcrumb-item"><a href="about_us.php">Pourquoi choisir la HAFCO ?</a></li>
+                                <li class="breadcrumb-item"><a href="services_and_contact.php">Nos services</a></li>
                             </ol>
                         </nav>
                     </div>  
@@ -161,13 +94,13 @@
                         </div>
 
                         <div class="col-sm-4">
-                            <img src="images/img8.jpg" class="about-img" width="100%" height="auto" alt=""/>
+                            <img src="images/img8.jpg" class="about-img" width="auto" height="auto" alt=""/>
                         </div>
                     </div>
 
                     <div class="row">
                          <div class="col-sm-4">
-                            <img src="images/img6.jpg" class="about-img" width="100%" height="100%"  alt=""/>
+                            <img src="images/img6.jpg" class="about-img" width="auto" height="auto"  alt=""/>
                         </div>
 
                         <div class="col-sm-8">
@@ -207,7 +140,7 @@
                                 if (mysqli_num_rows($result) > 0) {
                                     while($row = mysqli_fetch_assoc($result)) {
 
-                                        echo '<div class="col-sm p-1"> <a href="" >';
+                                        echo '<div class="col-sm p-1"> <a href="">';
                                         echo '<div class="img-hover"><a href="" class="details-btn">Détails</a></div>';
                                         echo '<img src="upload/images/products/'.$row['image'].'" class="img-product" alt=""/> </a> </div>';
                                     }

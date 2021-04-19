@@ -47,7 +47,7 @@
                     <div class="text-width meubles mt-4">
                         <h1> Haitian American <br/> fiberglass <br/> company s.a. <br/><span id="ctlg"></span> </h1>
                         <li class="meubles-btn"> 
-                            <a href="#">Voir nos meubles</a>
+                            <a href="index.php">Voir nos meubles</a>
                         </li>
                     </div>
                 </div>

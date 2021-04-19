@@ -216,12 +216,7 @@
                                             while($row = mysqli_fetch_assoc($result)) {
                                                 echo '<div class="col-md-4"> <div class="card mx-auto my-auto h-100">';
                                                 echo '<img src="upload/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
-                                                        // {% if product.image %}
-                                        
-                                                        //     <img src="{{ vich_uploader_asset(product, 'imageFile')}}" class="card-img-top">
-                                        
-                                                        // {% endif %}
-                                                
+                                                    
                                                 echo '<div class="card-body"> <h3 class="card-title">'. $row['product_name'] .'</h3> <hr>';
                                                 echo '<p class="card-text">'. $row['product_description'] ;
                                                 echo '</p> </div> <a href="show_product.php?product_id='.$row['id'].'-'.$row['product_name'].'" >';

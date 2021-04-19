@@ -37,6 +37,12 @@
   <div class="container box">
    <h1 align="center">HAFCO - Gestion des produits</h1>
    <br />
+   <div align="right">
+        <!-- <h5 class="my-5">Hi, <b>
+            <?php //echo htmlspecialchars($_SESSION["username"]); ?>
+        </h5> -->
+        <a href="../logout.php" class="btn btn-danger ml-3">Se déconnecter</a>
+   </div>
    <div class="table-responsive">
    <br />
     <div align="right">
@@ -62,6 +68,17 @@
   </div>
  </body>
 </html>
+
+<?php
+    // Initialize the session
+    session_start();
+ 
+    // Check if the user is logged in, if not then redirect him to login page
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+        header("location: ../index.php");
+        exit;
+    }
+?>
 
 <script type="text/javascript" language="javascript">
  $(document).ready(function(){
@@ -153,7 +170,7 @@
         }
     });
   
-  
+    
     $(document).on('click', '.delete', function(){
         var id = $(this).attr("id");
         if(confirm("Are you sure you want to remove this?"))

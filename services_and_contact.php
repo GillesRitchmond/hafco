@@ -45,36 +45,45 @@
         <div class="body-hafco body-services-hafco">
                 <div class="banner banner-services">
 
-                    <div id="carouselExampleDark" class="carousel carousel-light slide container" data-bs-ride="carousel">
+                        <div class="content container">
+                            <div class="text-width">
+                            <h1>  <span id="ctlg"> Réparations et restauration </span> de toutes sortes de meubles </h1>
+                                <li class="meubles-btn"> 
+                                <a href="index.php">Voir nos meubles</a>
+                                </li>
+                            </div>
+                        </div>
+
+                    <!-- <div id="carouselExampleDark" class="carousel carousel-light slide container" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                        </div>
-                        <div class="carousel-inner">
+                        </div> -->
+                        <!-- <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="5000">
-                                <!-- {# <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> #} -->
+                                <!-- {# <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> #} --
                                 <div class="carousel-caption d-none d-md-block">
                                     <div class="content container">
                                         <div class="text-width">
                                             <h1>  <span id="ctlg"> Réparations et restauration </span> de toutes sortes de meubles </h1>
                                             <li class="meubles-btn"> 
-                                                <a href="#">Voir nos meubles</a>
+                                                <a href="index.php">Voir nos meubles</a>
                                             </li>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="carousel-item" data-bs-interval="5000">
-                            <!-- {# <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> #} -->
+                            <!-- <div class="carousel-item" data-bs-interval="5000">
+                              <!-- <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="...">  --
                                 <div class="carousel-caption d-none d-md-block">
                                     <div class="content container">
                                         <div class="text-width">
                                             <h1> Décorations d'intérieures <br/> <span id="ctlg"> et architectures ? </span> </h1>
                                             <li class="meubles-btn"> 
-                                                <a href="#">Voir notre catalogue</a>
+                                                <a href="index.php">Voir notre catalogue</a>
                                             </li>
                                         </div>
                                     </div>
@@ -82,7 +91,7 @@
                             </div>
 
                             <div class="carousel-item" data-bs-interval="5000">
-                                <!-- {# <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> #} -->
+                                <!-- {# <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> #} --
                                 <div class="carousel-caption d-none d-md-block">
                                     <div class="content container">
                                         <div class="text-width">
@@ -96,7 +105,7 @@
                             </div>
 
                             <div class="carousel-item" data-bs-interval="5000">
-                                 <!-- <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> -->
+                                 <!-- <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> --
                                 <div class="carousel-caption d-none d-md-block">
                                     <div class="content container">
                                         <div class="text-width">
@@ -107,7 +116,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         
                         <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="prev"> -->

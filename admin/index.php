@@ -1,3 +1,96 @@
+<?php
+
+    // Initialize the session
+    session_start();
+    // Check if the user is already logged in, if yes then redirect him to welcome page
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+        header("location: welcome.php");
+        exit;
+    }
+
+    include('../Model/Connection.php');
+    // session_start();
+
+    // Define variables and initialize with empty values
+    $username = $password = "";
+    $username_err = $password_err = $login_err = "";
+    
+    // Processing form data when form is submitted
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+    
+        // Check if username is empty
+        if(empty(trim($_POST["username"]))){
+            $username_err = "Please enter username.";
+        } else{
+            $username = trim($_POST["username"]);
+        }
+        
+        // Check if password is empty
+        if(empty(trim($_POST["password"]))){
+            $password_err = "Please enter your password.";
+        } else{
+            $password = trim($_POST["password"]);
+        }
+        
+        // Validate credentials
+        if(empty($username_err) && empty($password_err)){
+            // Prepare a select statement
+            $sql = "SELECT id, username, password FROM user WHERE username = ?";
+
+
+            if($stmt = $conn->prepare($sql)){
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param("s", $param_username);
+                
+                // Set parameters
+                $param_username = $username;
+                
+                // Attempt to execute the prepared statement
+                if($stmt->execute()){
+                    // Store result
+                    $stmt->store_result();
+                    
+                    // Check if username exists, if yes then verify password
+                    if($stmt->num_rows == 1){                    
+                        // Bind result variables
+                        $stmt->bind_result($id, $username, $hashed_password);
+                        if($stmt->fetch()){
+                            if(password_verify($password, $hashed_password)){
+                                // Password is correct, so start a new session
+                                session_start();
+                                
+                                // Store data in session variables
+                                $_SESSION["loggedin"] = true;
+                                $_SESSION["id"] = $id;
+                                $_SESSION["username"] = $username;                            
+                                
+                                // Redirect user to welcome page
+                                header("location: adminProduct/index.php");
+                            } else{
+                                // Password is not valid, display a generic error message
+                                $login_err = "Invalid username or password.";
+                            }
+                        }
+                    } else{
+                        // Username doesn't exist, display a generic error message
+                        $login_err = "Invalid username or password.";
+                    }
+                } else{
+                    echo "Oops! Something went wrong. Please try again later.";
+                }
+
+                // Close statement
+                $stmt->close();
+            }
+        }
+        
+        // Close connection
+        $conn->close();
+    }
+
+?>
+
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -108,16 +201,24 @@
                             <p class="text-uppercase fs-5 fw-bolder">Connectez-vous à votre compte</p>
                         </div>
                     </div>
-                    
-                        <form method="POST" action="index.php" class="form-group">
+
+
+                <?php 
+                    if(!empty($login_err)){
+                        echo '<div class="alert alert-danger">' . $login_err . '</div>';
+                    }        
+                ?>
+
+                        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="form-group">
                             <div class="form-row">
                                 <div class="col-md-10">
                                     <div class="mb-4 form-floating">
-                                            <input type="text" class="form-control" name="username" required>
+                                            <input type="text" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" name="username" required>
                                             <label for="floatingInput">Identifiant</label>
+                                            <span class="invalid-feedback"><?php echo $username_err; ?></span>
                                         </div>
                                         <div class="mb-4 form-floating">
-                                            <input type="password" class="form-control" name="password" required>
+                                            <input type="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" name="password" required>
                                             <label for="floatingInput">Mot de passe</label>
                                         </div>
                                         <div class="col-12">
@@ -143,27 +244,3 @@
     </body>
 
 </html>
-
-<?php
-    include('../Model/Connection.php');
-    // session_start();
-
-    if(isset($_POST['username']) AND isset($_POST['password'])){
-
-        $username = mysqli_real_escape_string($conn, $_POST["username"]);
-        $password = mysqli_real_escape_string($conn, $_POST["password"]);
-
-        $query = "SELECT * FROM user WHERE username LIKE $username AND password LIKE $password";
-        $result = $conn->query($query);
-
-        if (mysqli_num_rows($result) > 0) {
-            // session_register("username");
-            header("Location: adminProduct.php");
-            // $_SESSION['login_user'] = $username;
-            echo $row['id'] .'-'. $row['nom'] .'-'. $row['prenom'] .'-'. $row['username'] .'-'. $row['password'] ;
-        }
-        else{
-            echo 'Erreur de connection';
-        }
-    }
-?>

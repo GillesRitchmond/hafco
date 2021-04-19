@@ -70,7 +70,7 @@ nav ul li a .active{
     color:#FFBC00;
 }
 .body-hafco{
-    margin-top: 0px;
+    margin-top: 80px;
 }
 
 @media screen and (max-width: 767px){
@@ -79,6 +79,9 @@ nav ul li a .active{
         margin: 5px 0px;
         width: 40%;
         height: 40%;
+    }
+    .body-hafco{
+        margin-top: 0px;
     }
 }
 
@@ -181,7 +184,48 @@ nav ul li a .active{
     text-decoration: underline;
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 499px){
+     .footer{
+        padding-top: 5px;
+    }           
+    .footer-content{
+        margin-top: 30px;
+        text-align: left;
+        margin-left: -40px;
+    }
+    .help{
+        text-align: left;
+    }
+    .footer-link li{
+        list-style: none;
+        text-align: left;  
+        margin-top: 7px;
+    }
+    .politics{
+        margin-left: 30px;
+    }
+    .contact-infos{
+        color:#FFF;
+        justify-content: center;
+        
+    }
+    .contact li{
+        text-align: left;
+        width: 250px;
+        
+    }
+    .politics{
+        width: 250px;
+    }
+    .politics hr{
+        width: 250px;
+    }
+    .politics a{
+        text-align:left;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 767px){
     .footer{
         padding-top: 5px;
     }           
@@ -243,6 +287,26 @@ nav ul li a .active{
 #ctlg{
     color:#FFBC00;
 }
+
+.meubles-btn{
+    list-style: none;
+    text-align: center;  
+    margin: 50px;
+}
+.meubles-btn a{
+    text-decoration: none;
+    color:#FFF;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    padding: 10px;
+}
+.meubles-btn a:hover{
+    background-color: #FFBC00;
+    color:#345282;
+    border-style: none;
+}
+
 .search{
     /* margin-top: 10px; */
     align-content: center;
@@ -294,7 +358,41 @@ nav ul li a .active{
     border-bottom-left-radius: 4px;
 }
 
+@media screen and (max-width: 499px){
+    .text-width{
+        width: 280px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .text-width h1{
+        font-size: 20px;
+        /* margin: 0 auto; */
+        margin-bottom: 30px;
+    }
+    .card-img-top{
+        width:100%;
+        height: 100px;
+        object-fit: cover;
+    }
+    .category{
+        width: 200px;
+    }
+    .category-list{
+        width: 400px;
+    }
+    .meubles-btn{
+        text-align: center;
+        margin: 0 auto;
+        width: max-content;
+    }
+}
+
 @media screen and (min-width: 768px) {
+    .banner{
+        text-align: center;
+        height: 350px;
+        margin-top: -80px;
+    }
     #adv-search {
         width: 500px;
         margin: 0 auto;
@@ -312,7 +410,7 @@ nav ul li a .active{
     }
 }
 
-@media screen and (max-width: 767px){
+@media (min-width: 500px) and (max-width: 767px){
     .card-img-top{
         width:100%;
         height:180px;
@@ -325,20 +423,32 @@ nav ul li a .active{
         width: 400px;
     }
     .text-width{
-        margin-top: -15px;
-        margin-left: -10px;
-    }
-    .search{
-        margin-left: -60px;
+        width: 350px;
+        color: #FFF;
+        margin: 0 auto;
+        text-align: center;
     }
     .text-width h1{
+        font-size: 25px;
+        /* margin: 0 auto; */
+        margin-bottom: 30px;
+    }
+    .meubles-btn{
+        text-align: center;
+        margin: 0 auto;
+        width: max-content;
+    } 
+    /* .search{
+        margin-left: -60px;
+    } */
+    /* .text-width h1{
         width: 325px;
-        /* margin-left: -50px; */
-    }
-    .meubles{
-        /* margin-left: -5px; */
+        margin-left: -50px;
+    } */
+    /* .meubles{
+        margin-left: -5px;
         width: 40px;
-    }
+    } */
 
     
     .pagination{
@@ -528,7 +638,7 @@ hr{
 .section-content{
     font-size: medium;
 }
-.meubles-btn{
+/* .meubles-btn{
   list-style: none;
   text-align: center;  
   margin: 50px;
@@ -545,7 +655,7 @@ hr{
     background-color: #FFBC00;
     color:#345282;
     border-style: none;
-}
+} */
 .starred-link{
     text-align: center;
     margin-top: 60px;
@@ -710,24 +820,48 @@ hr{
     object-fit: cover;
 }
 
-@media screen and (max-width: 300px){
-    text-width{
-        width: 100px;
+ @media screen and (max-width: 499px){
+     .breadcrumb{
+        width: 250px;
+        text-align: center; 
     }
-}
+    .about-img{
+        width: 270px;
+        height: 300px;
+        margin: 8px 0px;
+        object-fit: cover;
+    }
+    .starred-link p{
+        margin: 0 auto;
+        width: 250px;
+        text-align: center;
+        padding: 0 10px;
+    }
+    .products{
+        margin: 0 auto;
+    }
+    .product-content{
+        margin: 0 auto;
+        max-width: min-content;
+    }
+    .breadcrumb-item a{
+        padding: 0px;
+    }
+} 
 
-@media (min-width: 301px) and (max-width: 767px){
+@media (min-width: 500px) and (max-width: 767px){
     /* .banner{
         text-align: center;
         height: 350px;
         margin-top: -80px;
     }*/
-    .text-width{
+    /* .text-width{
         width: 150px;
         color: #FFF;
-    }
+        margin: 0 auto;
+    } */
     /* .text-width h1{
-        font-size: 20px;
+        font-size: 25px;
     }  */
     .carousel-item{
         margin: 0 auto;
@@ -779,9 +913,10 @@ hr{
         max-width: min-content;
     }
     .about-img{
-        width: 342px;
+        width: 375px;
         height: 300px;
         margin: 8px 0px;
+        object-fit: cover;
     }
     .img-hover{
         visibility: hidden;
@@ -790,11 +925,11 @@ hr{
 }
 
 @media (min-width: 768px) and (max-width: 1024px){
-    .banner{
+    /* .banner{
         text-align: center;
         height: 350px;
         margin-top: -80px;
-    }
+    } */
     .starred-link .links{
         margin-top: 35px;
     }
@@ -831,14 +966,14 @@ hr{
     .content{
         margin-top: 50px;
     }
-    .meubles{
-        /* margin-left: -5px; */
+    /* .meubles{
+        margin-left: -5px;
         width: 40px;
-    }
-    .meubles-btn{
+    } */
+    /* .meubles-btn{
         width:300px;
         margin: 45px 0px;
-    }
+    } */
 }
 
 /**************** SERVICES PAGE ***********************/
@@ -900,19 +1035,31 @@ hr{
     height: 600px;
     object-fit: cover;
 }
-@media screen and (max-width: 767px){
-    .services .help-services p{
-        width: 350px;
+@media screen and (max-width: 499px){
+   .services .help-services p{
+        width: 275px;
     }
     .img-pub{
         margin-top: 15px;
-        height: 200px
+        height: 200px;
+        width: 300px;
+    } 
+}
+
+@media (min-width: 500px) and (max-width: 767px){
+    .services .help-services p{
+        width: 275px;
+    }
+    .img-pub{
+        margin-top: 15px;
+        height: 200px;
+        width: 385px;
     }
 }
 
 @media (min-width: 426px) and (max-width: 768px){
     .services .help-services p{
-        width: 550px;
+        width: 500px;
     }
 }
 
