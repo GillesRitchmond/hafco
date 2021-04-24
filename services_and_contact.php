@@ -1,5 +1,8 @@
 <?php
-    include('base_header.php');
+
+use PHPMailer\PHPMailer\PHPMailer;
+
+include('base_header.php');
 ?>
 
 <html>
@@ -43,92 +46,19 @@
     <body>
 
         <div class="body-hafco body-services-hafco">
-                <div class="banner banner-services">
+                    <div class="banner banner-services">
 
                         <div class="content container">
                             <div class="text-width">
-                            <h1>  <span id="ctlg"> Réparations et restauration </span> de toutes sortes de meubles </h1>
+                                <h1>  <span id="ctlg"> Réparations et restauration </span> de toutes sortes de meubles </h1>
                                 <li class="meubles-btn"> 
                                 <a href="index.php">Voir nos meubles</a>
                                 </li>
                             </div>
                         </div>
-
-                    <!-- <div id="carouselExampleDark" class="carousel carousel-light slide container" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                        </div> -->
-                        <!-- <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="5000">
-                                <!-- {# <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> #} --
-                                <div class="carousel-caption d-none d-md-block">
-                                    <div class="content container">
-                                        <div class="text-width">
-                                            <h1>  <span id="ctlg"> Réparations et restauration </span> de toutes sortes de meubles </h1>
-                                            <li class="meubles-btn"> 
-                                                <a href="index.php">Voir nos meubles</a>
-                                            </li>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                            <!-- <div class="carousel-item" data-bs-interval="5000">
-                              <!-- <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="...">  --
-                                <div class="carousel-caption d-none d-md-block">
-                                    <div class="content container">
-                                        <div class="text-width">
-                                            <h1> Décorations d'intérieures <br/> <span id="ctlg"> et architectures ? </span> </h1>
-                                            <li class="meubles-btn"> 
-                                                <a href="index.php">Voir notre catalogue</a>
-                                            </li>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-item" data-bs-interval="5000">
-                                <!-- {# <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> #} --
-                                <div class="carousel-caption d-none d-md-block">
-                                    <div class="content container">
-                                        <div class="text-width">
-                                            <h1> Des meubles <span id="ctlg"> sur mesure ? </span> </h1>
-                                            <li class="meubles-btn"> 
-                                                <a href="#">Voir nos réalisations</a>
-                                            </li>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-item" data-bs-interval="5000">
-                                 <!-- <img src="https://via.placeholder.com/728x350" class="d-block w-100" alt="..."> --
-                                <div class="carousel-caption d-none d-md-block">
-                                    <div class="content container">
-                                        <div class="text-width">
-                                            <h1> <span id="ctlg"> Livraison </span><br/> à travers le territoire </h1>
-                                            <li class="meubles-btn"> 
-                                                <a href="#">Ecrivez-nous dès maintenant</a>
-                                            </li>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                        </div>
+                    </div>
                         
-                        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="prev"> -->
-                            <!-- {# <span class="carousel-control-prev-icon" aria-hidden="true"></span> #} -->
-                            <!-- <span class="iconify iconify-left" data-icon="fa-angle-left" data-inline="false" style="color: white;"></span> -->
-                            <!-- {# <span class="visually-hidden">Previous</span> #} -->
-                        <!-- </button> -->
-                        <!-- <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"  data-bs-slide="next"> -->
-                            <!-- {# <span class="carousel-control-next-icon" aria-hidden="true"></span> #} -->
-                            <!-- <span class="iconify" data-icon="fa-angle-right" data-inline="false" style="color: white;"></span> -->
-                            <!-- {# <span class="visually-hidden">Next</span> #} -->
-                        <!-- </button> -->
+                       
                     </div>
                 </div>
 
@@ -186,23 +116,25 @@
                         <div class="row">
                             <div class="col-sm">
                                 <h1>Formulaire de contact</h1>
-                                <div class="form-row">
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingInput" placeholder="Veuillez insérez votre nom complet">
-                                        <label for="floatingInput">Nom complet</label>
+                                <form method="POST">
+                                    <div class="form-row">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" name="fullname" id="floatingInput" placeholder="Veuillez insérez votre nom complet">
+                                            <label for="floatingInput">Nom complet</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+                                            <label for="floatingInput">Email address</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <textarea class="form-control" name="comment" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                            <label for="floatingTextarea2">Comments</label>
+                                        </div>
+                                        <div class="col-12 submit-btn">
+                                            <button class="btn btn-primary" type="submit">Envoyer</button>
+                                        </div>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                        <label for="floatingInput">Email address</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                                        <label for="floatingTextarea2">Comments</label>
-                                    </div>
-                                    <div class="col-12 submit-btn">
-                                        <button class="btn btn-primary" type="submit">Envoyer</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
 
                                 <div class="col-sm">
@@ -224,3 +156,275 @@
         ?>
     </body>
 </html>
+
+
+<?php
+
+require_once('PHPMailer-master/src/Exception.php');
+require_once('PHPMailer-master/src/PHPMailer.php');
+require_once('PHPMailer-master/src/SMTP.php');
+
+
+$mail = new PHPMailer();
+
+    $mail->isSMTP();
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = 587;
+    $mail->isHTML();
+    $mail->Username = 'ritchmond.gilles@esih.edu';
+    $mail->Password = 'aniteraymond';
+    $mail->SetFrom('ritchmond.gilles@esih.edu', 'Mailer');
+    $mail->Subject = 'Test';
+    $mail->Body = 'Bonjour';
+    $mail->AddAddress('gritchmond@gmail.com');
+
+    $mail->send();
+    // echo 'Message has been sent';
+
+
+    if(isset($_POST['fullname']) AND  isset($_POST['email']) AND isset($_POST['comment'])){
+    //     require_once('PHPMailer-master/src/Exception.php');
+    //     require_once('PHPMailer-master/src/PHPMailer.php');
+    //     require_once('PHPMailer-master/src/SMTP.php');
+        
+
+    //     $mail = new PHPMailer();
+    //     try {
+    //         $mail->isSMTP();
+    //         $mail->SMTPAuth = true;
+    //         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    //         $mail->Host = 'smtp.gmail.com';
+    //         $mail->Port = 587;
+    //         $mail->isHTML();
+    //         $mail->Username = 'ritchmond.gilles@esih.edu';
+    //         $mail->Password = 'aniteraymond';
+    //         $mail->SetFrom('ritchmond.gilles@esih.edu', 'Mailer');
+    //         $mail->Subject = $subject;
+    //         $mail->Body = $messag;
+    //         $mail->AddAddress('gritchmond@gmail.com');
+
+    //         $mail->send();
+    //         echo 'Message has been sent';
+    //     } catch (Exception $e) {
+    //         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    //     }
+        
+        // $to = "gritchmond@gmail.com";
+        $subject = "Demande d'informations sur nos produits et servcices";
+
+        $messag = '
+        <!doctype html>
+            <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+            <head>
+            <title>
+            </title>
+            <!--[if !mso]><!-- -->
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <!--<![endif]-->
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style type="text/css">
+                #outlook a {
+                padding: 0;
+                }
+
+                body {
+                margin: 0;
+                padding: 0;
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+                }
+
+                table,
+                td {
+                border-collapse: collapse;
+                mso-table-lspace: 0pt;
+                mso-table-rspace: 0pt;
+                }
+
+                img {
+                border: 0;
+                height: auto;
+                line-height: 100%;
+                outline: none;
+                text-decoration: none;
+                -ms-interpolation-mode: bicubic;
+                }
+
+                p {
+                display: block;
+                margin: 13px 0;
+                }
+            </style>
+            <!--[if mso]>
+                    <xml>
+                    <o:OfficeDocumentSettings>
+                    <o:AllowPNG/>
+                    <o:PixelsPerInch>96</o:PixelsPerInch>
+                    </o:OfficeDocumentSettings>
+                    </xml>
+                    <![endif]-->
+            <!--[if lte mso 11]>
+                    <style type="text/css">
+                    .mj-outlook-group-fix { width:100% !important; }
+                    </style>
+                    <![endif]-->
+            <style type="text/css">
+                @media only screen and (min-width:480px) {
+                .mj-column-per-100 {
+                    width: 100% !important;
+                    max-width: 100%;
+                }
+                }
+            </style>
+            <style type="text/css">
+                @media only screen and (max-width:480px) {
+                table.mj-full-width-mobile {
+                    width: 100% !important;
+                }
+
+                td.mj-full-width-mobile {
+                    width: auto !important;
+                }
+                }
+            </style>
+            </head>
+
+            <body>
+            <div style="">
+                <!--[if mso | IE]>
+                <table
+                    align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+                >
+                    <tr>
+                    <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+                <![endif]-->
+                <div style="margin:0px auto;max-width:600px;">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+                    <tbody>
+                    <tr>
+                        <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;">
+                        <!--[if mso | IE]>
+                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                            
+                    <tr>
+                
+                        <td
+                        class="" style="vertical-align:top;width:600px;"
+                        >
+                    <![endif]-->
+                        <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                            <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+                            <tr>
+                                <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                                    <tbody>
+                                    <tr>
+                                        <td style="width:100px;">
+                                        <img height="auto" src="images/hafco_logo_png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="100" />
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                <p style="border-top:solid 4px #345282;font-size:1px;margin:0px auto;width:100%;">
+                                </p>
+                                <!--[if mso | IE]>
+                    <table
+                    align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 4px #345282;font-size:1px;margin:0px auto;width:550px;" role="presentation" width="550px"
+                    >
+                    <tr>
+                        <td style="height:0;line-height:0;">
+                        &nbsp;
+                        </td>
+                    </tr>
+                    </table>
+                <![endif]-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                <div style="font-family:helvetica;font-size:20px;line-height:1;text-align:center;color:#345282;">
+                                Demande d\'informations sur nous produits et services
+                                </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:0px;word-break:break-word;">
+                                <!--[if mso | IE]>
+                
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="40" style="height:40px;">
+                
+                <![endif]-->
+                                <div style="height:40px;"> &nbsp; </div>
+                                <!--[if mso | IE]>
+                
+                    </td></tr></table>
+                
+                <![endif]-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                <div style="font-family:helvetica;font-size:20px;line-height:1;text-align:center;color:#000000;">
+                                '.$_POST["fullname"].'
+                                </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                <div style="font-family:helvetica;font-size:20px;line-height:1;text-align:center;color:#000000;">
+                                '.$_POST["email"].'
+                                </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                <div style="font-family:helvetica;font-size:20px;line-height:1;text-align:left;color:#000000;">
+                                '.$_POST["comment"].'
+                                </div>
+                                </td>
+                            </tr>
+                            </table>
+                        </div>
+                        <!--[if mso | IE]>
+                        </td>
+                    
+                    </tr>
+                
+                            </table>
+                            <![endif]-->
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+                <!--[if mso | IE]>
+                    </td>
+                    </tr>
+                </table>
+                <![endif]-->
+            </div>
+            </body>
+
+            </html>
+        ';
+        $message= "Bonjour";
+        // Always set content-type when sending HTML email
+        // $headers = "MIME-Version: 1.0" . "\r\n";
+        // $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+        // More headers
+        // $headers = 'From: ritchmond.gilles@esih.edu'       . "\r\n" .
+        //          'Reply-To: gritchmond@gmail.com' . "\r\n" .
+        //          'X-Mailer: PHP/' . phpversion();
+        // mail($to,$subject,$message, $headers);
+    }
+?>
+

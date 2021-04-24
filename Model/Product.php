@@ -1,6 +1,6 @@
 <?php
 
-class Fruit {
+class Product {
     // Properties
     public $id;
     public $product_name;

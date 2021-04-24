@@ -56,31 +56,9 @@
                         
                         <h1 class="mb-4"> Rechercher dans <br/> notre<span id="ctlg"> catalogue </span> </h1>
 
-                                        <!-- <div class="col-2 col-sm-3 form-row">
-                                            <button type="button" class="input-group-btn btn btn-search btn-default dropdown-toggle" data-toggle="dropdown">
-                                                <span class="glyphicon glyphicon-search"></span>
-                                                <span class="label-icon">Catégories</span>
-                                                <span class="caret"></span>
-                                            </button>
-                                            <div class="">
-                                               
-                                            </div>
-                                        </div> -->
-
-                        
-                                        
                                         <form action="index.php" method="POST">
                                             <input type="text" class="form-control" id="search" name="search"  placeholder="Exemple : Fournitures de bureau" /> 
-<!-- 
-                                                <div class="col col-md-10 form-row search-field mx-auto">
-                                                    
-                                                </div>
 
-                                                <div class="col-9 col-md-9 form-row search-field">
-                                                    
-                                                </div>  -->
-                                                
-                                
                                             <div class="col-md">
                                                 <button type="submit" class="btn btn-secondary mt-4 mx-auto"> Rechercher </button>
                                             </div>
@@ -104,7 +82,7 @@
     
                         <div class="category"><h5>Catégories de produits</h5></div>
                         <hr>
-                        <form action="index.php" method="POST">
+                        <form action="index.php" method="GET">
                             <?php
                                 $query = "SELECT * FROM  category ORDER BY category_name ASC";
                                 $result = $conn->query($query);
@@ -112,7 +90,10 @@
                                 if (mysqli_num_rows($result) > 0) {
                                     while($row = mysqli_fetch_assoc($result)) {
                                         echo '<div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="'.$row['id'].'" id="'.$row['id'].'" name="category" ></input>
+                                                
+                                                <input class="form-check-input" type="checkbox" value="'.$row['id'].'" id="'.$row['id'].'" name="categorie-meubles" >
+                                                    <a href="?category='.$row['category_name'].'-meubles-"></a>
+                                                </input>
                                                 <label class="form-check-label" for="flexCheckDefault">'.$row['category_name'].'</label>
                                             </div>';
                                     }
@@ -132,9 +113,6 @@
                             <div class="category_link">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb bg-light">
-                                        <!-- <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Library</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Data</li>  -->
                                         <div class="category"><h5>Liste de produits</h5></div>
                                     </ol>
                                 </nav>
@@ -146,29 +124,27 @@
 
                                 <?php
 
-                                    
-                                // Pagination --------->
-
-                                    if (isset($_GET['pageno'])) {
-                                        $pageno = $_GET['pageno'];
-                                    } else {
-                                        $pageno = 1;
-                                    }
-                                    
-                                    $no_of_records_per_page = 12;
-                                    $offset = ($pageno-1) * $no_of_records_per_page;
-
-                                    $total_pages_sql = "SELECT COUNT(*) FROM product ";
-                                    $result = mysqli_query($conn,$total_pages_sql);
-                                    $total_rows = mysqli_fetch_array($result)[0];
-                                    $total_pages = ceil($total_rows / $no_of_records_per_page);
-                                    
-                                    
                                 // Fetch Product
                                 
-                                    if(isset($_POST["category"])){
+                                    if(isset($_GET["categorie-meubles"])){
 
-                                        $query = 'SELECT * FROM  product WHERE categories_id LIKE "'.$_POST["category"].'"';
+                                        // Pagination --------->
+
+                                        if (isset($_GET['pageno'])) {
+                                            $pageno = $_GET['pageno'];
+                                        } else {
+                                            $pageno = 1;
+                                        }
+                                        
+                                        $no_of_records_per_page = 12;
+                                        $offset = ($pageno-1) * $no_of_records_per_page;
+
+                                        $total_pages_sql = "SELECT COUNT(*) FROM product WHERE categories_id LIKE '".$_GET["categorie-meubles"]."'";
+                                        $result = mysqli_query($conn,$total_pages_sql);
+                                        $total_rows = mysqli_fetch_array($result)[0];
+                                        $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+                                        $query = "SELECT * FROM  product WHERE categories_id LIKE '".$_GET["categorie-meubles"]."' LIMIT $offset, $no_of_records_per_page";
                                         $result = $conn->query($query);
 
                                         if (mysqli_num_rows($result) > 0) {
@@ -180,17 +156,27 @@
                                                 echo '</p> </div> <a href="show_product.php?product_id=<?='.$row['id'].'?>" >';
                                                 echo '<div class="card-footer"> <small class="text"> Plus de détails </small> </div> </a> </div> </div>';
                                             }
+                                        }else {
+                                            echo '<div class="col-lg-7 alert alert-danger">Pas de produits dans cette catégorie</div>';
                                         } 
                                     }
+                                     elseif(isset($_POST["search"])){
 
+                                        // Pagination --------->
 
-
-                                    if(isset($_POST["search"])){
+                                        if (isset($_GET['pageno'])) {
+                                            $pageno = $_GET['pageno'];
+                                        } else {
+                                            $pageno = 1;
+                                        }
                                         
+                                        $no_of_records_per_page = 12;
+                                        $offset = ($pageno-1) * $no_of_records_per_page;
 
-                                        // $input = filter_input_array(INPUT_POST);
-                                        // $search = mysqli_real_escape_string($conn, $input["search"]);
-                                        // $id = mysqli_real_escape_string($conn, $input["id"]);
+                                        $total_pages_sql = "SELECT COUNT(*) FROM product WHERE product_name LIKE '%".$_POST["search"]."%'";
+                                        $result = mysqli_query($conn,$total_pages_sql);
+                                        $total_rows = mysqli_fetch_array($result)[0];
+                                        $total_pages = ceil($total_rows / $no_of_records_per_page);
 
                                         $query = 'SELECT * FROM  product WHERE product_name LIKE "%'.$_POST["search"].'%"' ;
                                         $result = $conn->query($query);
@@ -204,10 +190,62 @@
                                                 echo '</p> </div> <a href="show_product.php?product_id=<?='.$row['id'].'?>" >';
                                                 echo '<div class="card-footer"> <small class="text"> Plus de détails </small> </div> </a> </div> </div>';
                                             }
+                                        }else {
+                                            echo '<div class="col-lg-7 alert alert-danger">Pas de produits approprié à votre recherche</div>';
+                                        } 
+                                    }
+                                    elseif(isset($_POST["search"]) AND ($_GET["categorie-meubles"])){
+
+                                        // Pagination --------->
+
+                                        if (isset($_GET['pageno'])) {
+                                            $pageno = $_GET['pageno'];
+                                        } else {
+                                            $pageno = 1;
+                                        }
+                                        
+                                        $no_of_records_per_page = 12;
+                                        $offset = ($pageno-1) * $no_of_records_per_page;
+
+                                        $total_pages_sql = "SELECT COUNT(*) FROM product WHERE categories_id LIKE '".$_GET["categorie-meubles"]."' AND product_name LIKE '%".$_POST["search"]."%'";
+                                        $result = mysqli_query($conn,$total_pages_sql);
+                                        $total_rows = mysqli_fetch_array($result)[0];
+                                        $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+                                        $query = "SELECT * FROM product WHERE categories_id LIKE '".$_GET["categorie-meubles"]."' AND product_name LIKE '%".$_POST["search"]."%'";
+                                        $result = $conn->query($query);
+
+                                        if (mysqli_num_rows($result) > 0) {
+                                            while($row = mysqli_fetch_assoc($result)) {
+                                                echo '<div class="col-md-4"> <div class="card mx-auto my-auto h-100">';
+                                                echo '<img src="upload/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
+                                                echo '<div class="card-body"> <h3 class="card-title">'. $row['product_name'] .'</h3> <hr>';
+                                                echo '<p class="card-text">'. $row['product_description'] ;
+                                                echo '</p> </div> <a href="show_product.php?product_id=<?='.$row['id'].'?>" >';
+                                                echo '<div class="card-footer"> <small class="text"> Plus de détails </small> </div> </a> </div> </div>';
+                                            }
+                                        }else {
+                                            echo '<div class="col-lg-7 alert alert-danger">Pas de produits approprié à votre recherche</div>';
                                         } 
                                     }
                                     
                                     else{
+
+                                        // Pagination --------->
+
+                                        if (isset($_GET['pageno'])) {
+                                            $pageno = $_GET['pageno'];
+                                        } else {
+                                            $pageno = 1;
+                                        }
+                                        
+                                        $no_of_records_per_page = 12;
+                                        $offset = ($pageno-1) * $no_of_records_per_page;
+
+                                        $total_pages_sql = "SELECT COUNT(*) FROM product WHERE categories_id <> 0";
+                                        $result = mysqli_query($conn,$total_pages_sql);
+                                        $total_rows = mysqli_fetch_array($result)[0];
+                                        $total_pages = ceil($total_rows / $no_of_records_per_page);
 
                                         $query = "SELECT * FROM  product WHERE categories_id <> 0 ORDER BY product_name LIMIT $offset, $no_of_records_per_page";
                                         $result = $conn->query($query);

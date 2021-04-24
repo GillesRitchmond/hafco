@@ -25,6 +25,10 @@ body{
 .primary{
     color:#FFBC00
 }
+.table-brand{
+    background-color: #345282;
+    color: #FFF;
+}
 .secondary{
     color:#345282
 }
@@ -1063,23 +1067,10 @@ hr{
     }
 }
 
-/*@media (min-width: 320px) and (max-width: 425px){
-    
-    .services{
-        width: 300px;
-    }
-    .services .help-services p{
-        width: 220px;
-        text-align: justify;
-    }
-    .table{
-        width: 200px;
-    }
-    .table tbody td{
-        padding: 5px 5px;
-        text-align: justify;
-    }
-    .form-contact{
-        width: 230px;
-    } 
-}*/
+/**************** DASHBOARD PAGE ***********************/
+.float-start{
+    text-align: left;
+}
+.btn-outline-primary{
+    text-align: left;
+}
