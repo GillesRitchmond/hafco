@@ -4,7 +4,7 @@
     session_start();
     // Check if the user is already logged in, if yes then redirect him to welcome page
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-        header("location: welcome.php");
+        header("location: dashboard.php");
         exit;
     }
 
@@ -65,7 +65,7 @@
                                 $_SESSION["username"] = $username;                            
                                 
                                 // Redirect user to welcome page
-                                header("location: adminProduct/index.php");
+                                header("location: dashboard.php");
                             } else{
                                 // Password is not valid, display a generic error message
                                 $login_err = "Invalid username or password.";
@@ -112,7 +112,7 @@
 
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 

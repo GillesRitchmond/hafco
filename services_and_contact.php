@@ -46,7 +46,55 @@ include('base_header.php');
     <body>
 
         <div class="body-hafco body-services-hafco">
-                    <div class="banner banner-services">
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/home-banner.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                            <h1>Réparations et restauration de <br>  toutes sortes de meubles </h1>
+                                <div class="mt-4"></div>
+                                <p>Obtenez l’appareil électronique que vous voulez avec ces offres.</p>
+                                
+                                <a href="#" class="btn btn-brand mt-5"></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/home-banner.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h1>Les meilleurs produits <br> sont à votre disposition</h1>
+                                <div class="mt-4"></div>
+                                <p>Nous sommes là pour répondre à vos besoins</p>
+                                
+                                <a href="#" class="btn btn-brand mt-5"></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/home-banner.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h1>Demandez votre devis</h1>
+                                <div class="mt-4"></div>
+                                <p>Nous sommes disponibles 24/7 pour répondre à <br> vos besoins et services.</p>
+
+                                <a href="#" class="btn btn-brand mt-5"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                    <!-- <div class="banner banner-services">
 
                         <div class="content container">
                             <div class="text-width">
@@ -56,11 +104,11 @@ include('base_header.php');
                                 </li>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                         
                        
-                    </div>
-                </div>
+                    <!-- </div>
+                </div> -->
 
 
 

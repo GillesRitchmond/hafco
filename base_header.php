@@ -39,40 +39,6 @@
 
     <body>
 
-         <!-- <nav class="navbar fixed-top navbar-expand-lg fixed-navbar navbar-light">
-            
-            <div class="container-fluid">
-                
-                
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse sticky-top navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link {% if controller_name is defined and controller_name == 'HomeController' %} active {% endif %}" aria-current="page" href="{{path('home')}}">Accueil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if controller_name is defined and controller_name == 'AboutUsController' %} active {% endif %}" href="{{path('about_us')}}">Qui sommes-nous ?</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link navbar-brand" href="#">
-                                <img src="{{asset('images/group4@2x.png')}}" alt="" width="100%" height="100%" class="d-inline-block align-top">
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link {% if controller_name is defined and controller_name == 'CatalogController' %} active {% endif %}" href="{{path('catalog')}}">Produits</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if controller_name is defined and controller_name == 'ContactAndServicesController' %} active {% endif %}" href="{{path('contact_and_services')}}">Services & Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>  -->
         <nav class="navbar navbar-expand-lg sticky-top navbar-light">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,7 +60,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Produits</a>
+                            <a class="nav-link" href="index.php">Notre catalogue</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="services_and_contact.php">Services & Contact</a>

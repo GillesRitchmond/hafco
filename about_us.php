@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="about-img-1">
-                        <img src="http://placehold.it/300x260" height="200px" width="100%"alt=""/>
+                        <img src="images/home-banner.png" height="200px" width="100%"alt=""/>
                     </div>
                     
                     <div class="block-text" id="aboutUs">
@@ -91,9 +91,9 @@
                             la conception des placards, des cuisines et l'aménagement des intérieures et des bureaux. </p>
                             
                             <div class="row about-img-1 pt-2">
-                                <img src="http://placehold.it/300x260" class="col-md mt-2" height="200px" width="100%"alt=""/>
-                                <img src="http://placehold.it/300x260" class="col-md mt-2" height="200px" width="100%"alt=""/>
-                                <img src="http://placehold.it/300x260" class="col-md mt-2" height="200px" width="100%"alt=""/>
+                                <img src="images/img2.jpg" class="col-md mt-2" height="200px" width="100%" alt="" style="object-fit: cover;"/>
+                                <img src="images/img6.jpg" class="col-md mt-2" height="200px" width="100%" alt="" style="object-fit: cover;"/>
+                                <img src="images/img4.jpg" class="col-md mt-2" height="200px" width="100%" alt="" style="object-fit: cover;"/>
                             </div>
                             <br/>
 
@@ -110,7 +110,7 @@
                             
                             <br/><br/>
 
-                            Il faut ajouter aussi que la HAFCO a un personnel qualifié qui a reçu une formation complémentaire in situ
+                            Il faut ajouter aussi que la HAFCO a un personnel qualifié qui a reçu une formation complémentaire
                             assez souvent accompagnée de spécialistes internationaux. En haute saison de production, la HAFCO compte jusqu'à
                             cent vingt employés et contractuels dont des responsables de vente, un ingénieur mécanique, un architecte,
                             un designer, des techniciens en informatiques etc. C'est grâce à ce staff que nous ayons pu décrocher notre titre de 
@@ -119,8 +119,8 @@
                     </div>
 
                     <div class="row about-img-1 pt-2">
-                        <img src="http://placehold.it/300x260" class="col-md mt-2" height="200px" width="100%"alt=""/>
-                        <img src="http://placehold.it/300x260" class="col-md mt-2" height="200px" width="100%"alt=""/>
+                        <img src="images/img1.jpg" class="col-md mt-2" height="200px" width="100%"alt="" style="object-fit: cover;"/>
+                        <img src="images/img1.jpg" class="col-md mt-2" height="200px" width="100%"alt="" style="object-fit: cover;"/>
                     </div>
 
                     <div class="block-text">
