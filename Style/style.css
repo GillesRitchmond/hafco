@@ -59,7 +59,6 @@ body{
 
 .navbar{
     background-color: #FFF;
-    /* margin-top: 15px; */
     box-shadow: 0px 0.15px 20px #345282;
 }
 nav ul{
@@ -81,11 +80,13 @@ nav ul img{
 nav ul li a .active{
     color:#FFBC00;
 }
+/* .carousel{
+    margin-top: 200px;
+} */
+
 .body-hafco{
     margin-top: 80px;
 }
-
-
 @media screen and (max-width: 767px){
     .brand{
         /* visibility: hidden; */
@@ -95,6 +96,9 @@ nav ul li a .active{
     }
     .carousel-caption{
         width: 100px;
+    }
+    .body-hafco{
+        margin-top: 0;
     }
 }
 
@@ -279,7 +283,7 @@ nav ul li a .active{
     background-color: #345282;
     /* background-image: url('../images/home-banner.png'); */
     height: 350px;
-    padding: 5%;
+    padding: 15%;
     text-align: center;
     align-content: center;
     justify-content: center;
@@ -370,7 +374,7 @@ nav ul li a .active{
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
 }
-.carousel-caption{
+/* .carousel-caption{
     width: 400px;
     margin: 50px auto;
 }
@@ -388,7 +392,7 @@ nav ul li a .active{
     color: var(--white);
     border-radius: 10px;
     padding: 10px 20px;
-}
+} */
 
 
 @media screen and (max-width: 499px){
@@ -647,13 +651,13 @@ hr{
     background-size: cover;
     width: 100%;
 }
-.carousel-item{
+/* .carousel-item{
     height: 350px;
     width: 100%;
 }
 .carousel-inner{
     margin-top: -80px;
-}
+} */
 .iconify-left{
     content: url('https://api.iconify.design/fa-angle-left.svg?color=white&height=14&inline=true');
     vertical-align: -0.143em;
@@ -1046,7 +1050,7 @@ hr{
     object-fit: cover;
 }
 @media screen and (max-width: 499px){
-   .services .help-services p{
+    .services .help-services p{
         width: 275px;
     }
     .img-pub{

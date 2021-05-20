@@ -44,61 +44,62 @@
     <body>
     
     <div class="body-hafco">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <!-- <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div> -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="images/home-banner.png" class="d-block w-100 img-banner" height="100%" width="auto" style="object-fit:cover;" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h1> 50 ans d'expérience <br> dans la fabrication de <span id="ctlg"> mobilier scolaire <span> </h1>
-                                <div class="mt-4"></div>
-                                <p>Nous sommes le leader dans la fabrication de produits durables et de haute qualité</p>
-                                
-                                <li class="meubles-btn"> 
-                                    <a href="index.php">Voir nos meubles</a>
-                                </li>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/home-banner.png" class="d-block w-100 img-banner" style="object-fit:cover;" height="100%" width="auto" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h1>Les meilleurs produits <br> sont à votre disposition</h1>
-                                <div class="mt-4"></div>
-                                <p></p>
-                                
-                                <li class="meubles-btn"> 
-                                    <a href="index.php">Visiter notre catalogue</a>
-                                </li>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/home-banner.png" class="d-block w-100 img-banner" style="object-fit:cover;" height="100%" width="auto" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h1>Réparations et restauration de <br>  toutes sortes de meubles</h1>
-                                <div class="mt-4"></div>
-                                <p>Nous sommes disponibles 24/7 pour répondre à vos besoins et services.</p>
-
-                                <li class="meubles-btn"> 
-                                    <a href="services_and_contact.php">Contactez-nous dès maintenant</a>
-                                </li>
-                            </div>
-                        </div>
+        <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <!-- <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div> -->
+            <!-- <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/home-banner.png" class="d-block w-100 img-banner" height="100%" width="auto" style="object-fit:cover;" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class=""> 50 ans d'expérience <br> dans la fabrication de <span id="ctlg"> mobilier scolaire <span> </h2>
+                        <div class=""></div>
+                        <p>Nous sommes le leader dans la fabrication de produits durables et de haute qualité</p>
+                        
+                        <li class="meubles-btn"> 
+                            <a href="index.php">Voir nos meubles</a>
+                        </li>
                     </div>
-                    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button> -->
                 </div>
-        <!-- <div class="banner">
-            <div class="content container">
+                <div class="carousel-item">
+                    <img src="images/home-banner.png" class="d-block w-100 img-banner" style="object-fit:cover;" height="100%" width="auto" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Les meilleurs produits <br> sont à votre disposition</h2>
+                        <div class=""></div>
+                        <p></p>
+                        
+                        <li class="meubles-btn"> 
+                            <a href="index.php">Visiter notre catalogue</a>
+                        </li>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/home-banner.png" class="d-block w-100 img-banner" style="object-fit:cover;" height="100%" width="auto" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Réparations et restauration de <br>  toutes sortes de meubles</h1>
+                        <div class=""></div>
+                        <p>Nous sommes disponibles 24/7 pour répondre à vos besoins et services.</p>
+
+                        <li class="meubles-btn"> 
+                            <a href="services_and_contact.php">Contactez-nous dès maintenant</a>
+                        </li>
+                    </div>
+                </div>
+            </div> -->
+                <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button> -->
+            <!-- </div> -->
+
+        <div class="banner">
+            <div class="content container mt-5">
                 <div class="text-width">
                     <h1> 50 ans d'expérience dans la fabrication de <span id="ctlg"> mobilier scolaire <span> </h1>
                     <li class="meubles-btn"> 
@@ -106,7 +107,7 @@
                     </li>
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <div class="section-content">
             <div class="container">

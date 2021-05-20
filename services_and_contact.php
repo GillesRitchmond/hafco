@@ -47,7 +47,7 @@ include('base_header.php');
 
         <div class="body-hafco body-services-hafco">
 
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="margin-top: 80px;">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -56,22 +56,22 @@ include('base_header.php');
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="images/home-banner.png" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                            <h1>Réparations et restauration de <br>  toutes sortes de meubles </h1>
-                                <div class="mt-4"></div>
+                            <div class="carousel-caption d-none d-md-block"  style="margin-top: 80px;">
+                                <h1>Réparations et restauration de toutes sortes de meubles </h1>
+                                <div class=""></div>
                                 <p>Obtenez l’appareil électronique que vous voulez avec ces offres.</p>
                                 
-                                <a href="#" class="btn btn-brand mt-5"></a>
+                                <!-- <a href="#" class="btn btn-brand mt-1"></a> --
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="images/home-banner.png" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
-                                <h1>Les meilleurs produits <br> sont à votre disposition</h1>
-                                <div class="mt-4"></div>
+                                <h1>Les meilleurs produits sont à votre disposition</h1>
+                                <div class=""></div>
                                 <p>Nous sommes là pour répondre à vos besoins</p>
                                 
-                                <a href="#" class="btn btn-brand mt-5"></a>
+                                <a href="#" class="btn btn-brand mt-3"></a>
                             </div>
                         </div>
                         <div class="carousel-item">
@@ -81,7 +81,7 @@ include('base_header.php');
                                 <div class="mt-4"></div>
                                 <p>Nous sommes disponibles 24/7 pour répondre à <br> vos besoins et services.</p>
 
-                                <a href="#" class="btn btn-brand mt-5"></a>
+                                <a href="#" class="btn btn-brand mt-3"></a>
                             </div>
                         </div>
                     </div>
@@ -93,10 +93,10 @@ include('base_header.php');
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
-                </div>
-                    <!-- <div class="banner banner-services">
+                </div> -->
+                    <div class="banner banner-services">
 
-                        <div class="content container">
+                        <div class="content container mt-5">
                             <div class="text-width">
                                 <h1>  <span id="ctlg"> Réparations et restauration </span> de toutes sortes de meubles </h1>
                                 <li class="meubles-btn"> 
@@ -104,7 +104,7 @@ include('base_header.php');
                                 </li>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                         
                        
                     <!-- </div>
@@ -222,7 +222,6 @@ $mail = new PHPMailer();
     $mail->Port = 587;
     $mail->isHTML();
     $mail->Username = 'ritchmond.gilles@esih.edu';
-    $mail->Password = 'aniteraymond';
     $mail->SetFrom('ritchmond.gilles@esih.edu', 'Mailer');
     $mail->Subject = 'Test';
     $mail->Body = 'Bonjour';

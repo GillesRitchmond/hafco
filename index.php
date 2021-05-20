@@ -46,7 +46,7 @@
     <div class="body-hafco">
 
         <div class="banner bg-catalog">
-            <div class="content container">
+            <div class="content container mt-5">
                 <div class="text-width mx-auto">
                     <div class="input-group search">
                        <div class="row search-form">
@@ -55,7 +55,7 @@
                                 <div class="row px-12" id="adv-search">
                                     <div class="row">
                         
-                        <h1 class="mb-4"> Rechercher dans <br/> notre<span id="ctlg"> catalogue </span> </h1>
+                            <h1 class="mb-4"> Rechercher dans <br/> notre<span id="ctlg"> catalogue </span> </h1>
 
                                         <form action="index.php" method="POST">
                                             <input type="text" class="form-control" id="search" name="search"  placeholder="Exemple : Fournitures de bureau" /> 
@@ -151,10 +151,10 @@
                                         if (mysqli_num_rows($result) > 0) {
                                             while($row = mysqli_fetch_assoc($result)) {
                                                 echo '<div class="col-md-4"> <div class="card mx-auto my-auto h-100">';
-                                                echo '<img src="upload/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
+                                                echo '<img src="admin/uploads/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
                                                 echo '<div class="card-body"> <h3 class="card-title">'. $row['product_name'] .'</h3> <hr>';
                                                 echo '<p class="card-text">'. $row['product_description'] ;
-                                                echo '</p> </div> <a href="show_product.php?product_id=<?='.$row['id'].'?>" >';
+                                                echo '</p> </div> <a href="show_product.php?meubles='.$row['id'].''.$row['slug'].'" >';
                                                 echo '<div class="card-footer"> <small class="text"> Plus de détails </small> </div> </a> </div> </div>';
                                             }
                                         }else {
@@ -185,10 +185,10 @@
                                         if (mysqli_num_rows($result) > 0) {
                                             while($row = mysqli_fetch_assoc($result)) {
                                                 echo '<div class="col-md-4"> <div class="card mx-auto my-auto h-100">';
-                                                echo '<img src="upload/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
+                                                echo '<img src="admin/uploads/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
                                                 echo '<div class="card-body"> <h3 class="card-title">'. $row['product_name'] .'</h3> <hr>';
                                                 echo '<p class="card-text">'. $row['product_description'] ;
-                                                echo '</p> </div> <a href="show_product.php?product_id=<?='.$row['id'].'?>" >';
+                                                echo '</p> </div> <a href="show_product.php?meubles='.$row['id'].''.$row['slug'].'" >';
                                                 echo '<div class="card-footer"> <small class="text"> Plus de détails </small> </div> </a> </div> </div>';
                                             }
                                         }else {
@@ -219,10 +219,10 @@
                                         if (mysqli_num_rows($result) > 0) {
                                             while($row = mysqli_fetch_assoc($result)) {
                                                 echo '<div class="col-md-4"> <div class="card mx-auto my-auto h-100">';
-                                                echo '<img src="upload/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
+                                                echo '<img src="admin/uploads/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
                                                 echo '<div class="card-body"> <h3 class="card-title">'. $row['product_name'] .'</h3> <hr>';
                                                 echo '<p class="card-text">'. $row['product_description'] ;
-                                                echo '</p> </div> <a href="show_product.php?product_id=<?='.$row['id'].'?>" >';
+                                                echo '</p> </div> <a href="show_product.php?meubles='.$row['id'].''.$row['product_name'].'" >';
                                                 echo '<div class="card-footer"> <small class="text"> Plus de détails </small> </div> </a> </div> </div>';
                                             }
                                         }else {
@@ -254,18 +254,16 @@
                                         if (mysqli_num_rows($result) > 0) {
                                             while($row = mysqli_fetch_assoc($result)) {
                                                 echo '<div class="col-md-4"> <div class="card mx-auto my-auto h-100">';
-                                                echo '<img src="upload/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
+                                                echo '<img src="admin/uploads/images/products/'.$row['image'].'" style="height=100%; width=100%"/>'; 
                                                     
                                                 echo '<div class="card-body"> <h3 class="card-title">'. $row['product_name'] .'</h3> <hr>';
                                                 echo '<p class="card-text">'. $row['product_description'] ;
-                                                echo '</p> </div> <a href="show_product.php?product_id='.$row['id'].'-'.$row['product_name'].'" >';
+                                                echo '</p> </div> <a href="show_product.php?meubles='.$row['id'].''.$row['slug'].'" >';
                                                 echo '<div class="card-footer"> <small class="text"> Plus de détails </small> </div> </a> </div> </div>';
                                             }
                                         }
                                     }
                                 ?>
-
-
                             </div>
                             
                             <ul class="pagination">

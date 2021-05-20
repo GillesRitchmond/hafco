@@ -24,7 +24,7 @@
 
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
@@ -47,7 +47,7 @@
         <div class="row g-0 bg-light position-relative">
 
                     <?php
-                            $id = $_GET['product_id'];
+                            $id = $_GET['meubles'];
                             $query = "SELECT * FROM  product WHERE id = '$id'";
                             $result = $conn->query($query);
 
@@ -55,7 +55,7 @@
                                 while($row = mysqli_fetch_assoc($result)) {
 
                                     echo '<div class="col-md-6 mb-md-0 p-md-4">
-                                        <img src="upload/images/products/'.$row['image'].'" class="w-100"/> </div>
+                                        <img src="admin/uploads/images/products/'.$row['image'].'" class="w-100"/> </div>
                                         <div class="col-md-6 p-4 ps-md-0"> 
                                         <div class="product-details">
                                     ';

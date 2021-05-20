@@ -43,7 +43,7 @@
     <body>
     <div class="body-hafco">
             <div class="banner">
-                <div class="content container">
+                <div class="content container mt-5">
                     <div class="text-width meubles mt-4">
                         <h1> Haitian American <br/> fiberglass <br/> company s.a. <br/><span id="ctlg"></span> </h1>
                         <li class="meubles-btn"> 
