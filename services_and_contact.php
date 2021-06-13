@@ -96,7 +96,7 @@ include('base_header.php');
                 </div> -->
                     <div class="banner banner-services">
 
-                        <div class="content container mt-5">
+                        <div class="content container">
                             <div class="text-width">
                                 <h1>  <span id="ctlg"> Réparations et restauration </span> de toutes sortes de meubles </h1>
                                 <li class="meubles-btn"> 

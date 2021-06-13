@@ -99,7 +99,7 @@
             <!-- </div> -->
 
         <div class="banner">
-            <div class="content container mt-5">
+            <div class="content container">
                 <div class="text-width">
                     <h1> 50 ans d'expérience dans la fabrication de <span id="ctlg"> mobilier scolaire <span> </h1>
                     <li class="meubles-btn"> 

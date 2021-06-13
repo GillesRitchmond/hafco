@@ -614,3 +614,547 @@ $(document).ready(function() {
     } );
 } );
 </script>
+
+
+
+
+
+<?php
+
+
+function productTable(){
+    include('../Model/Connection.php');
+
+    // Pagination --------->
+
+    if (isset($_GET['pageno'])) {
+        $pageno = $_GET['pageno'];
+    } else {
+        $pageno = 1;
+    }
+
+    $no_of_records_per_page = 12;
+    $offset = ($pageno-1) * $no_of_records_per_page;
+
+    $total_pages_sql = "SELECT COUNT(*) FROM product ";
+    $result = mysqli_query($conn,$total_pages_sql);
+    $total_rows = mysqli_fetch_array($result)[0];
+    $total_pages = ceil($total_rows / $no_of_records_per_page);
+    
+    
+        $query = "SELECT product.id, product_name, product_description, product_price, image, category_name FROM  product, category WHERE categories_id = category.id";
+        $result = $conn->query($query);
+
+            echo '
+                <div class="container">
+                    <div class="row mt-4">
+                        <div class="col-5"> <h3>Liste des produits |</h3> </div>
+                        <div class="col"><a class="btn btn-outline-primary" href="?home#newUser">Ajouter</a></div>
+                        <div class="col"> 
+                            <form method="POST" action="#" class="d-flex">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" name="search" type="submit">Search</button>
+                            </form>
+                    </div>
+                </div>
+            <hr>';
+
+            echo '<div class="table-responsive">
+            <table id="dataTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Prix</th>
+                        <th>Image</th>
+                        <th>Catégorie</th>
+                        <th>Action</th>
+                    </tr>
+                </thead> 
+                <tbody>';
+
+                if(isset($_POST["search"])){
+
+
+                    $query_search = 'SELECT * FROM product LEFT JOIN category ON categories_id <> 0 WHERE product_name LIKE "%'.$_POST["search"].'%"
+                                    OR product_description LIKE "%'.$_POST["search"].'%"  OR category_name LIKE "%'.$_POST["search"].'%"';
+                    $resultat = $conn->query($query_search);
+    
+                    if (mysqli_num_rows($resultat) > 0) {
+                        while($row = mysqli_fetch_assoc($resultat)) {
+                            echo'
+                            <tr>
+                                <td>'.$row["product_name"].'</td>
+                                <td >'.$row["product_description"].'</td>
+                                <td>'.$row["product_price"].'</td>
+                                <td style="word-wrap: break-word; min-width: 160px; max-width: 160px;">'.$row["image"].'</td>
+                                <td style="word-wrap: break-word; min-width: 140px; max-width: 140px;">'.$row["category_name"].'</td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col p-2">
+                                            <a href="edit/edit-product.php?edit_product_id='.$row['product.id'].'" class="btn btn-outline-primary"><i class="far fa-edit"></i></a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="?delete_product_id='.$row['id'].'" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+                                        </div>
+                                    </div>
+                                    
+                                </td>
+                            </tr>
+                        ';
+                            
+                        }
+                        echo '</tbody></div>';
+                    }
+                    else{
+
+                    }
+                }else{
+                    if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                            echo' <tbody>
+                    <tr>
+                        <td>'.$row["product_name"].'</td>
+                        <td>'.$row["product_description"].'</td>
+                        <td>'.$row["product_price"].'</td>
+                        <td style="word-wrap: break-word; min-width: 160px; max-width: 160px;">'.$row["image"].'</td>
+                        <td style="word-wrap: break-word; min-width: 140px; max-width: 140px;">'.$row["category_name"].'</td>
+                        <td>
+                            <div class="row">
+                                <div class="col p-2">
+                                    <a href="edit/edit-product.php?edit_product_id='.$row['id'].'" class="btn btn-outline-primary"><i class="far fa-edit"></i></a>
+                                </div>
+                                <div class="col">
+                                    <a href="?delete_product_id='.$row['id'].'" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                ';
+                }
+            }
+        }
+        echo '</tbody>
+        </table>';
+
+        // delete();
+}
+
+
+function categoryTable(){
+    include('../Model/Connection.php');
+
+    // Pagination --------->
+
+    if (isset($_GET['pageno'])) {
+        $pageno = $_GET['pageno'];
+    } else {
+        $pageno = 1;
+    }
+    
+    $no_of_records_per_page = 12;
+    $offset = ($pageno-1) * $no_of_records_per_page;
+
+    $total_pages_sql = "SELECT COUNT(*) FROM category ";
+    $result = mysqli_query($conn,$total_pages_sql);
+    $total_rows = mysqli_fetch_array($result)[0];
+    $total_pages = ceil($total_rows / $no_of_records_per_page);
+    
+    
+        $query = "SELECT * FROM  category ORDER BY category_name ASC";
+        $result = $conn->query($query);
+        
+        echo '
+            <div class="container">
+                <div class="row mt-4">
+                    <div class="col-5"> <h3>Liste des catégories |</h3> </div>
+                    <div class="col"><a class="btn btn-outline-primary" href="?home#newCategory">Ajouter</a></div>
+                    <div class="col"> 
+                        <form method="POST" action="#" class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" name="search" type="submit">Search</button>
+                        </form>
+                </div>
+            </div>
+        <hr>';
+
+        echo '<table class="table table-bordered">
+                <thead>
+                    <tr">
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>';
+
+        if(isset($_POST["search"])){
+
+
+            $query_search = 'SELECT * FROM category WHERE category_name LIKE "%'.$_POST["search"].'%" ';
+            $resultat = $conn->query($query_search);
+
+            if (mysqli_num_rows($resultat) > 0) {
+                while($row = mysqli_fetch_assoc($resultat)) {
+                    echo'<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="exampleModalLabel">Suppression d\'un élément</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                    Vous êtes sur le point de supprimer un élément, il se peut qu\'il soit attaché à d\'autres.
+                                    Si c\'est le cas, les éléments auxquels il est attaché seront supprimé aussi !
+                                <hr>
+                                    Etes-vous vraiment sûre de votre suppression ?
+                            </div>
+                            <div class="modal-footer">
+                            <div class="modal-footer">
+                                <a href="#" class="btn btn-warning">Valider</a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+                    
+                    echo' <tbody>
+                    <tr>
+                        <td>'.$row["category_name"].'</td>
+                        <td>'.$row["category_description"].'</td>
+                        <td>
+                            <div class="row">
+                                <div class="col p-2">
+                                    <a href="edit/edit-category.php?edit_category_id='.$row['id'].'" class="btn btn-outline-primary align-middle"><i class="far fa-edit"></i></a>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btn btn-outline-danger align-middle" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-trash-alt"></i></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                '; 
+            }
+            }else{
+                echo '<div class="alert alert-danger">Aucune catégorie dans cette liste</div>';
+            }
+        }else{
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo'<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="exampleModalLabel">Suppression d\'un élément</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                    Vous êtes sur le point de supprimer un élément, il se peut qu\'il soit attaché à d\'autres.
+                                    Si c\'est le cas, les éléments auxquels il est attaché seront supprimé aussi !
+                                <hr>
+                                    Etes-vous vraiment sûre de votre suppression ?
+                            </div>
+                            <div class="modal-footer">
+                                <a href="?delete_category_id='.$row['id'].'" class="btn btn-warning">Valider</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+                    
+                    echo' <tbody>
+                    <tr>
+                        <td>'.$row["category_name"].'</td>
+                        <td>'.$row["category_description"].'</td>
+                        <td>
+                            <div class="row">
+                                <div class="col p-2">
+                                    <a href="edit/edit-category.php?edit_category_id='.$row['id'].'" class="btn btn-outline-primary"><i class="far fa-edit"></i></a>
+                                </div>
+                                <div class="col">
+                                    <a href="?delete_category_id='.$row['id'].'" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-trash-alt"></i></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                ';
+                }
+            }
+        }
+    echo '</tbody>
+    </table>';
+
+    // delete();
+
+}
+
+
+function subCategoryTable(){
+    include('../Model/Connection.php');
+
+    // Pagination --------->
+
+    if (isset($_GET['pageno'])) {
+        $pageno = $_GET['pageno'];
+    } else {
+        $pageno = 1;
+    }
+    
+    $no_of_records_per_page = 12;
+    $offset = ($pageno-1) * $no_of_records_per_page;
+
+    $total_pages_sql = "SELECT COUNT(*) FROM sub_category ";
+    $result = mysqli_query($conn,$total_pages_sql);
+    $total_rows = mysqli_fetch_array($result)[0];
+    $total_pages = ceil($total_rows / $no_of_records_per_page);
+    
+    
+        $query = "SELECT sub_category.id, sub_category_name, sub_category_description, category_name FROM  sub_category, category WHERE category_id = category.id";
+        $result = $conn->query($query);
+        
+        echo '
+            <div class="container">
+                <div class="row mt-4">
+                    <div class="col-5"> <h3>Liste des sous-catégories |</h3> </div>
+                    <div class="col"><a class="btn btn-outline-primary" href="?home#newSubCategory">Ajouter</a></div>
+                    <div class="col"> 
+                        <form method="POST" action="#" class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" name="search" type="submit">Search</button>
+                        </form>
+                </div>
+            </div>
+        <hr>';
+
+        echo '<table class="table table-bordered mt-4">
+                <thead>
+                    <tr">
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Catégorie</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>';
+
+    if(isset($_POST["search"])){
+
+        $input = filter_input_array(INPUT_POST);
+        $search = mysqli_real_escape_string($conn, $input["search"]);
+
+        $query_search = 'SELECT sub_category.id, sub_category_name, sub_category_description, category_name FROM `sub_category` RIGHT JOIN category ON category_id = category.id
+                WHERE sub_category_name LIKE "%'.$_POST["search"].'%" OR sub_category_description LIKE "%'.$_POST["search"].'%" OR category_name LIKE "%'.$_POST["search"].'%"';
+        $resultat = $conn->query($query_search);
+
+        if (mysqli_num_rows($resultat) > 0) {
+            while($row = mysqli_fetch_assoc($resultat)) {
+                echo' <tbody>
+                    <tr>
+                        <td>'.$row["sub_category_name"].'</td>
+                        <td>'.$row["sub_category_description"].'</td>
+                        <td>'.$row["category_name"].'</td>
+                        <td>
+                            <div class="row">
+                                <div class="col p-2">
+                                    <a href="edit/edit-subcategory.php?edit_subcategory_id='.$row['id'].'" class="btn btn-outline-primary"><i class="far fa-edit"></i></a>
+                                </div>
+                                <div class="col">
+                                    <a href="?delete_subcategory_id='.$row['id'].'" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                ';
+            }
+        }else{
+            echo '<div class="alert alert-danger">Aucune sous-catégorie dans cette liste</div>';
+        }
+    }else{
+        if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+                echo' <tbody>
+                    <tr>
+                        <td>'.$row["sub_category_name"].'</td>
+                        <td>'.$row["sub_category_description"].'</td>
+                        <td>'.$row["category_name"].'</td>
+                        <td>
+                            <div class="row">
+                                <div class="col p-2">
+                                    <a href="edit/edit-subcategory.php?edit_subcategory_id='.$row['id'].'" class="btn btn-outline-primary"><i class="far fa-edit"></i></a>
+                                </div>
+                                <div class="col">
+                                    <a href="?delete_subcategory_id='.$row['id'].'" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                ';
+            }
+        }
+    }
+        echo '</tbody>
+        </table>';
+        
+        // delete();
+}
+
+
+function userTable(){
+    include('../Model/Connection.php');
+
+    // Pagination --------->
+
+    if (isset($_GET['pageno'])) {
+        $pageno = $_GET['pageno'];
+    } else {
+        $pageno = 1;
+    }
+    
+    $no_of_records_per_page = 12;
+    $offset = ($pageno-1) * $no_of_records_per_page;
+
+    $total_pages_sql = "SELECT COUNT(*) FROM user ";
+    $result = mysqli_query($conn,$total_pages_sql);
+    $total_rows = mysqli_fetch_array($result)[0];
+    $total_pages = ceil($total_rows / $no_of_records_per_page);
+    
+    
+        $query = "SELECT * FROM  user LIMIT $offset, $no_of_records_per_page";
+        $result = $conn->query($query);
+
+        echo '
+            <div class="container">
+                <div class="row mt-4">
+                    <div class="col-5"> <h3>Liste des utilisateurs |</h3> </div>
+                    <div class="col"><a class="btn btn-outline-primary" href="?home#newUser">Ajouter</a></div>
+                    <div class="col"> 
+                        <form method="POST" action="#" class="d-flex">
+                            <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                </div>
+            </div>
+        <hr>';
+
+
+         echo '<table class="table table-bordered">
+                <thead>
+                    <tr">
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Email</th>
+                        <th>username</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>';
+
+        if(isset($_POST["search"])){
+
+            $input = filter_input_array(INPUT_POST);
+            $search = mysqli_real_escape_string($conn, $input["search"]);
+
+            $query_search = 'SELECT * FROM user WHERE nom LIKE "%'.$_POST["search"].'%" OR prenom LIKE "%'.$_POST["search"].'%"
+            OR email LIKE "%'.$_POST["search"].'%"  OR username LIKE "%'.$_POST["search"].'%"';
+            $resultat = $conn->query($query_search);
+
+            if (mysqli_num_rows($resultat) > 0) {
+                while($row = mysqli_fetch_assoc($resultat)) {
+                    echo ' <tbody>
+                        <tr>
+                            <td>'.$row["nom"].'</td>
+                            <td>'.$row["prenom"].'</td>
+                            <td>'.$row["email"].'</td>
+                            <td>'.$row["username"].'</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col p-2">
+                                        <a href="edit/edit-user.php?edit_user_id='.$row['id'].'" class="btn btn-outline-primary"><i class="far fa-edit"></i></a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="?delete_user_id='.$row['id'].'" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    ';
+                }
+            }else{
+                echo '<div class="alert alert-danger">Aucun utilisateur dans cette liste</div>';
+            }
+        } else{
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo ' <tbody>
+                        <tr>
+                            <td>'.$row["nom"].'</td>
+                            <td>'.$row["prenom"].'</td>
+                            <td>'.$row["email"].'</td>
+                            <td>'.$row["username"].'</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col p-2">
+                                        <a href="edit/edit-user.php?edit_user_id='.$row['id'].'" class="btn btn-outline-primary"><i class="far fa-edit"></i></a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="?delete_user_id='.$row['id'].'" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    ';
+                }
+            }
+        }
+        echo '</tbody>
+        </table>';
+        
+        // delete();
+}
+
+function editUser(){
+    include('../Model/Connection.php');
+
+    if(isset($_GET["edit_user_id"])){
+        $query = "UPDATE FROM user WHERE id = '".$_GET["edit_user_id"]."'";
+    }
+}
+
+function delete(){
+    include('../Model/Connection.php');
+            
+            
+            if(isset($_GET["delete_user_id"])){
+
+                    $query = "DELETE FROM user WHERE id = '".$_GET["delete_user_id"]."'";
+                    mysqli_query($conn, $query);
+        
+                    userTable();
+            
+            } 
+            if(isset($_GET["delete_product_id"])){
+    
+                $query = "DELETE FROM product WHERE id = '".$_GET["delete_product_id"]."'";
+                mysqli_query($conn, $query);
+    
+                productTable();
+            
+            } 
+            if(isset($_GET["delete_category_id"])){
+
+                
+                // echo "<script> $('#exampleModal').modal('show'); </script>";
+
+                    $query = "DELETE FROM category WHERE id = '".$_GET["delete_category_id"]."'";
+                    mysqli_query($conn, $query);
+        
+                    categoryTable();
+
+            } 
+            if(isset($_GET["delete_subcategory_id"])){
+    
+                $query = "DELETE FROM sub_category WHERE id = '".$_GET["delete_subcategory_id"]."'";
+                mysqli_query($conn, $query);
+    
+                subCategoryTable();
+            
+            }
+}
+
+?>
