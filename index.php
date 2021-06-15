@@ -42,7 +42,7 @@ include('Model/Connection.php');
 
     <div class="body-hafco">
 
-        <div class="banner bg-catalog">
+        <!-- <div class="banner bg-catalog">
             <div class="content content-banner container mb-5" style="margin: 0 auto;">
                 <div class="text-width mx-auto">
                     <div class="input-group search">
@@ -70,7 +70,60 @@ include('Model/Connection.php');
                     </div>
                 </div>
             </div>
+        </div> -->
+
+        <div class="banner bg-catalog">
+            <div class="content container">
+                <div class="text-width mx-auto">
+                    <div class="input-group search">
+                        <div class="row search-form">
+
+                            <div class="col-lg-12 search-content">
+                                <div class="row px-12" id="adv-search">
+                                    <div class="row">
+
+                                        <h1 class="mb-4"> Rechercher dans <br /> notre<span id="ctlg"> catalogue </span> </h1>
+
+                                        <!-- <div class="col-2 col-sm-3 form-row">
+                                            <button type="button" class="input-group-btn btn btn-search btn-default dropdown-toggle" data-toggle="dropdown">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                                <span class="label-icon">Catégories</span>
+                                                <span class="caret"></span>
+                                            </button>
+                                            <div class="">
+                                               
+                                            </div>
+                                        </div> -->
+
+
+
+                                        <form action="index.php" method="POST">
+                                            <input type="text" class="form-control" id="search" name="search" placeholder="Exemple : Fournitures de bureau" />
+                                            <!-- 
+                                                <div class="col col-md-10 form-row search-field mx-auto">
+                                                    
+                                                </div>
+
+                                                <div class="col-9 col-md-9 form-row search-field">
+                                                    
+                                                </div>  -->
+
+
+                                            <div class="col-md">
+                                                <button type="submit" class="btn btn-secondary mt-4 mx-auto"> Rechercher </button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
     </div>
 
     <div class="container section-content js-filter">

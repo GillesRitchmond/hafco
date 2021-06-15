@@ -95,9 +95,9 @@
         </nav>
 
         <div class="container-fluid">
-            <div class="row mt-5 mx-4">
-                <div class="col-sm-2 bg-light p-2">
-                    <nav class="nav flex-column">
+        <div class="row mt-5 mx-4 g-2">
+                <div class="col-sm-2">
+                    <nav class="nav bg-light p-2 flex-column">
                         <a href="../dashboard.php" id="home" name="home" class="btn btn-outline-primary mt-2 p-2 float-start"> <i class="fas fa-home mx-3"></i>Tableau de bord</a>
                         <a href="../productTable.php" id="produits" name="produits" class="btn btn-outline-primary mt-2 p-2 float-start"> <i class="fas fa-box-open mx-3"></i>Produits</a>
                         <a href="../categoryTable.php" id="categories" name="categories" class="btn btn-outline-primary mt-2 p-2 float-start"> <i class="fas fa-list mx-3"></i>Catégories</a>

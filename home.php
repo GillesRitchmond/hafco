@@ -195,7 +195,7 @@
 
                                         echo '<div class="col-sm p-1"> <a href="">';
                                         echo '<div class="img-hover"><a href="" class="details-btn">Détails</a></div>';
-                                        echo '<img src="upload/images/products/'.$row['image'].'" class="img-product" alt=""/> </a> </div>';
+                                        echo '<img src="admin/uploads/images/products/'.$row['image'].'" class="img-product" alt=""/> </a> </div>';
                                     }
                                 }
                             ?>

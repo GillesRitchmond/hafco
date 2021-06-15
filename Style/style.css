@@ -6,6 +6,7 @@
 
 
 /* HAFCO */
+
 body{
     font-size:16px;
     font-family: 'Roboto', sans-serif;
@@ -279,12 +280,11 @@ nav ul li a .active{
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .banner{
     background-color: #345282;
     /* background-image: url('../images/home-banner.png'); */
     height: 350px;
-    padding: 15%;
+    padding: 5%;
     text-align: center;
     align-content: center;
     justify-content: center;
@@ -297,7 +297,7 @@ nav ul li a .active{
     text-align: center;
 }
 .text-width{
-    width: 500px;
+    width:450px;
     color:#FFF;
     margin: 0 auto;
     text-align: center;
@@ -424,14 +424,14 @@ nav ul li a .active{
         margin: 0 auto;
         width: max-content;
     }
-    .carousel-caption{
+    /* .carousel-caption{
         width: 300px;
         left: 15%;
         top: 50% !important;
         transform: translateY(-50%);
         text-align: center;
         bottom: initial;
-    }
+    } */
 }
 
 @media screen and (min-width: 768px) {
@@ -652,13 +652,13 @@ hr{
     background-size: cover;
     width: 100%;
 }
-/* .carousel-item{
+.carousel-item{
     height: 350px;
     width: 100%;
 }
 .carousel-inner{
     margin-top: -80px;
-} */
+}
 .iconify-left{
     content: url('https://api.iconify.design/fa-angle-left.svg?color=white&height=14&inline=true');
     vertical-align: -0.143em;
