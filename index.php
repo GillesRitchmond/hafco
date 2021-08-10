@@ -144,7 +144,7 @@ include('Model/Connection.php');
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo '<div class="form-check">
                                                 
-                                                <input class="form-check-input" type="checkbox" value="' . $row['id'] . '" id="' . $row['id'] . '" name="categorie-meubles" >
+                                                <input class="form-check-input" type="checkbox" value="' . $row['id'] . '" id="' . $row['id'] . '" name="categorie-meubles[]" >
                                                     <a href="?category=' . $row['category_name'] . '-meubles-"></a>
                                                 </input>
                                                 <label class="form-check-label" for="flexCheckDefault">' . $row['category_name'] . '</label>
@@ -183,36 +183,45 @@ include('Model/Connection.php');
 
                             if (isset($_GET["categorie-meubles"])) {
 
-                                // Pagination --------->
 
-                                if (isset($_GET['pageno'])) {
-                                    $pageno = $_GET['pageno'];
-                                } else {
-                                    $pageno = 1;
-                                }
+                                $categorie_meuble = (array) $_GET["categorie-meubles"];
 
-                                $no_of_records_per_page = 12;
-                                $offset = ($pageno - 1) * $no_of_records_per_page;
+                                if ($categorie_meuble != 0) {
 
-                                $total_pages_sql = "SELECT COUNT(*) FROM product WHERE categories_id LIKE '" . $_GET["categorie-meubles"] . "'";
-                                $result = mysqli_query($conn, $total_pages_sql);
-                                $total_rows = mysqli_fetch_array($result)[0];
-                                $total_pages = ceil($total_rows / $no_of_records_per_page);
+                                    // Pagination --------->
 
-                                $query = "SELECT * FROM  product WHERE categories_id LIKE '" . $_GET["categorie-meubles"] . "' LIMIT $offset, $no_of_records_per_page";
-                                $result = $conn->query($query);
-
-                                if (mysqli_num_rows($result) > 0) {
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        echo '<div class="col-md-4"> <div class="card mx-auto my-auto h-100">';
-                                        echo '<img src="admin/uploads/images/products/' . $row['image'] . '" style="height=100%; width=100%"/>';
-                                        echo '<div class="card-body"> <h3 class="card-title">' . $row['product_name'] . '</h3> <hr>';
-                                        echo '<p class="card-text">' . $row['product_description'];
-                                        echo '</p> </div> <a href="show_product.php?meubles=' . $row['id'] . '' . $row['slug'] . '" >';
-                                        echo '<div class="card-footer"> <small class="text"> Plus de détails </small> </div> </a> </div> </div>';
+                                    if (isset($_GET['pageno'])) {
+                                        $pageno = $_GET['pageno'];
+                                    } else {
+                                        $pageno = 1;
                                     }
-                                } else {
-                                    echo '<div class="col-lg-7 alert alert-danger">Pas de produits dans cette catégorie</div>';
+
+                                    $usersStr = implode(',', $categorie_meuble);
+
+                                    $no_of_records_per_page = 12;
+                                    $offset = ($pageno - 1) * $no_of_records_per_page;
+
+                                    // $total_pages_sql = "SELECT COUNT(*) FROM product WHERE categories_id LIKE '" . $_GET["categorie-meubles"] . "'";
+                                    $total_pages_sql = "SELECT COUNT(*) FROM product WHERE categories_id IN ($usersStr) ";
+                                    $result = mysqli_query($conn, $total_pages_sql);
+                                    $total_rows = mysqli_fetch_array($result)[0];
+                                    $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+                                    $query = "SELECT * FROM  product WHERE categories_id IN ($usersStr) LIMIT $offset, $no_of_records_per_page";
+                                    $result = $conn->query($query);
+
+                                    if (mysqli_num_rows($result) > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo '<div class="col-md-4"> <div class="card mx-auto my-auto h-100">';
+                                            echo '<img src="admin/uploads/images/products/' . $row['image'] . '" style="height=100%; width=100%"/>';
+                                            echo '<div class="card-body"> <h3 class="card-title">' . $row['product_name'] . '</h3> <hr>';
+                                            echo '<p class="card-text">' . $row['product_description'];
+                                            echo '</p> </div> <a href="show_product.php?meubles=' . $row['id'] . '' . $row['slug'] . '" >';
+                                            echo '<div class="card-footer"> <small class="text"> Plus de détails </small> </div> </a> </div> </div>';
+                                        }
+                                    } else {
+                                        echo '<div class="col-lg-7 alert alert-danger">Pas de produits dans cette catégorie</div>';
+                                    }
                                 }
                             } elseif (isset($_POST["search"])) {
 
